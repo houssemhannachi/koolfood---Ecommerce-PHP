@@ -68,27 +68,25 @@ Class Admin extends Controller
 		if($search){
 
 			//generate a search query
-			$query = Search::make_query($_GET);
-			$products = $DB->read($query);
+			// $query = Search::make_query($_GET);
+			// $products = $DB->read($query);
 
 		}else{
-			$products = $DB->read("SELECT prod.*,brands.brand as brand_name,cat.category as category_name FROM products as prod join brands on brands.id = prod.brand join categories as cat on cat.id = prod.category order by prod.id desc limit $limit offset $offset");
+			$products = $DB->read("SELECT prod.*,cat.category as category_name FROM products as prod join categories as cat on cat.id = prod.category order by prod.id desc limit $limit offset $offset");
 		}
 
  		$categories = $DB->read("select * from categories where disabled = 0 order by views desc");
- 		$brands = $DB->read("select * from brands where disabled = 0 order by views desc");
 
-		$product = $this->load_model("Product");
-		$category = $this->load_model("Category");
-		
-		$tbl_rows = $product->make_table($products,$category);
-		$data['tbl_rows'] = $tbl_rows;
-		$data['categories'] = $categories;
-		$data['brands'] = $brands;
-	 
-		$data['page_title'] = "Admin - Products";
-		$data['current_page'] = "products";
-		$this->view("admin/products",$data);
+		 $product = $this->load_model("Product");
+		 $category = $this->load_model("Category");
+		 
+		 $tbl_rows = $product->make_table($products,$category);
+		 $data['tbl_rows'] = $tbl_rows;
+		 $data['categories'] = $categories;
+	  
+		 $data['page_title'] = "Admin - Products";
+		 $data['current_page'] = "products";
+		 $this->view("admin/products",$data);
 	}
 
  	public function orders()

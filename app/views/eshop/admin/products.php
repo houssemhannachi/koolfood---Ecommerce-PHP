@@ -69,13 +69,6 @@
                        	 						</select>
                        	 					</td>
                        	 				</tr>
-                       	 			 
-                       	 				<tr>
-                       	 					<th>Brands</th>
-                       	 					<td colspan="3">
-                        	 						<?php Search::get_brands()?>
-                        	 				</td>
-                       	 				</tr>
                        	 				
                        	 				<tr>
                        	 					<th>Price</th>
@@ -146,22 +139,6 @@
 				                              		<?php foreach($categories as $categ): ?>
 
 				                              			<option value="<?=$categ->id?>"><?=$categ->category?></option>
-				                              		<?php endforeach; ?>
-			                              		<?php endif; ?>
-			                              	</select>
- 			                              </div>
-			                          </div>
-																
-																<br><br style="clear: both;">
-			                          <div class="form-group">
-			                              <label class="col-sm-2 col-sm-2 control-label">Brand:</label>
-			                              <div class="col-sm-10">
-			                              	<select id="brand" name="brand"  class="form-control" required>
-			                              		<option></option>
-			                              		<?php if(is_array($brands)): ?>
-				                              		<?php foreach($brands as $brand): ?>
-
-				                              			<option value="<?=$brand->id?>"><?=$brand->brand?></option>
 				                              		<?php endforeach; ?>
 			                              		<?php endif; ?>
 			                              	</select>
@@ -303,15 +280,18 @@
 					            <br><br>
 	                  	  	  </div>
 	                  	  	  <!--edit product end-->
- 	                  	  	  <hr>
 
-                               <thead>
+
+
+	                  	  	  <hr>
+
+
+                              <thead>
                               <tr>
                                   <th>Product id</th>
                                   <th>Product Name</th>
                                    <th>Quantity</th>
                                    <th>Category</th>
-                                   <th>Brand</th>
                                    <th>Price</th>
                                    <th>Date</th>
                                   <th><i class=" fa fa-edit"></i> Action</th>
@@ -322,9 +302,6 @@
                               	<?=$tbl_rows?>
                              
                               </tbody>
-
-                              <tr><td colspan="9"><?php Page::show_links();?></td></tr>
-
                           </table>
                       </div><!-- /content-panel -->
                   </div><!-- /col-md-12 -->
@@ -423,13 +400,6 @@
 			alert("Please enter a valid category");
 			return;
 		}
-		
-		var brand_input = document.querySelector("#brand");
-		if(brand_input.value.trim() == "" || isNaN(brand_input.value.trim()))
-		{
-			alert("Please enter a valid brand");
-			return;
-		}
 
 		var price_input = document.querySelector("#price");
 		if(price_input.value.trim() == "" || isNaN(price_input.value.trim()))
@@ -470,7 +440,6 @@
 		data.append('description',product_input.value.trim());
 		data.append('quantity',quantity_input.value.trim());
 		data.append('category',category_input.value.trim());
-		data.append('brand',brand_input.value.trim());
 		data.append('price',price_input.value.trim());
 		data.append('data_type','add_product');
 		data.append('image',image_input.files[0]);
@@ -590,7 +559,6 @@
 
 	function handle_result(result)
 	{
- //console.log(result);
 		if(result != ""){
 			var obj = JSON.parse(result);
 

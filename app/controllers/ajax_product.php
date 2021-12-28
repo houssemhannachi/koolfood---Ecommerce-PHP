@@ -45,7 +45,29 @@ Class Ajax_product extends Controller
 
 					echo json_encode($arr);
 				}
-			}else if($data->data_type == 'edit_product')
+			}else
+			if($data->data_type == 'disable_row')
+			{
+
+				$disabled = ($data->current_state == "Enabled") ?  1 : 0 ;
+				$id = $data->id ;
+
+				$query = "update categories set disabled = '$disabled' where id = '$id' limit 1";
+				$DB->write($query);
+
+				$arr['message'] = "";
+				$_SESSION['error'] = "";
+				$arr['message_type'] = "info";
+
+				$cats = $product->get_all();
+				$arr['data'] = $product->make_table($cats);
+
+				$arr['data_type'] = "disable_row";
+
+				echo json_encode($arr);
+
+			}else
+			if($data->data_type == 'edit_product')
 			{
  
 				$product->edit($data,$_FILES,$image_class);

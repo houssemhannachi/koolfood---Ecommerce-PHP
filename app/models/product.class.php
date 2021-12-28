@@ -10,13 +10,12 @@ Class Product
 
 		$DB = Database::newInstance(); 
 		$arr['description'] = ucwords($DATA->description);
-		$arr['quantity'] 	= ($DATA->quantity);
-		$arr['category'] 	= ($DATA->category);
-		$arr['brand'] 	= ($DATA->brand);
-		$arr['price'] 		= ($DATA->price);
+		$arr['quantity'] 	= ucwords($DATA->quantity);
+		$arr['category'] 	= ucwords($DATA->category);
+		$arr['price'] 		= ucwords($DATA->price);
 		$arr['date'] 		= date("Y-m-d H:i:s");
 		$arr['user_url'] 	= $_SESSION['user_url'];
-		$arr['slag'] 		= str_to_url($DATA->description);
+		$arr['slag'] 		= $this->str_to_url($DATA->description);
  
 		if(!preg_match("/^[a-zA-Z 0-9._\-,]+$/", trim($arr['description'])))
 		{
@@ -31,11 +30,6 @@ Class Product
 		if(!is_numeric($arr['category']))
 		{
 			$_SESSION['error'] .= "Please enter a valid category<br>";
-		}
-		
-		if(!is_numeric($arr['brand']))
-		{
-			$_SESSION['error'] .= "Please enter a valid brand<br>";
 		}
 
 		if(!is_numeric($arr['price']))
@@ -89,7 +83,7 @@ Class Product
 		}
 
 		if(!isset($_SESSION['error']) || $_SESSION['error'] == ""){
-			$query = "insert into products (description,quantity,category,brand,price,date,user_url,image,image2,image3,image4,slag) values (:description,:quantity,:brand,:category,:price,:date,:user_url,:image,:image2,:image3,:image4,:slag)";
+			$query = "insert into products (description,quantity,category,price,date,user_url,image,image2,image3,image4,slag) values (:description,:quantity,:category,:price,:date,:user_url,:image,:image2,:image3,:image4,:slag)";
 			$check = $DB->write($query,$arr);
 
 			if($check){
@@ -205,7 +199,6 @@ Class Product
  				$info['quantity'] = $cat_row->quantity;
  				$info['price'] = $cat_row->price;
  				$info['category'] = $cat_row->category;
- 				$info['category'] = $cat_row->brand_name;
  				$info['image'] = $cat_row->image;
  				$info['image2'] = $cat_row->image2;
  				$info['image3'] = $cat_row->image3;
@@ -213,15 +206,14 @@ Class Product
 
  				$info = str_replace('"', "'", json_encode($info));
 
- 				//$one_cat = $model->get_one($cat_row->category);
+ 				$one_cat = $model->get_one($cat_row->category);
  				$result .= "<tr>";
 				
 					$result .= '
 						<td><a href="basic_table.html#">'.$cat_row->id.'</a></td>
 						<td><a href="basic_table.html#">'.$cat_row->description.'</a></td>
 						<td><a href="basic_table.html#">'.$cat_row->quantity.'</a></td>
-						<td><a href="basic_table.html#">'.$cat_row->category_name.'</a></td>
-						<td><a href="basic_table.html#">'.$cat_row->brand_name.'</a></td>
+						<td><a href="basic_table.html#">'.$one_cat->category.'</a></td>
 						<td><a href="basic_table.html#">'.$cat_row->price.'</a></td>
 						<td><a href="basic_table.html#">'.date("jS M, Y H:i:s",strtotime($cat_row->date)).'</a></td>
 						<td><a href="basic_table.html#"><img src="'.ROOT . $cat_row->image.'" style="width:70px; height:70px;" /></a></td>
@@ -239,6 +231,17 @@ Class Product
 
 		return $result;
 	}
- 
+
+
+	public function str_to_url($url) {
+	   $url = preg_replace('~[^\\pL0-9_]+~u', '-', $url);
+	   $url = trim($url, "-");
+	   $url = iconv("utf-8", "us-ascii//TRANSLIT", $url);
+	   $url = strtolower($url);
+	   $url = preg_replace('~[^-a-z0-9_]+~', '', $url);
+	   return $url;
+	}
+
+
 
 }
