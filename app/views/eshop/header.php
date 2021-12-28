@@ -33,8 +33,8 @@
 					<div class="col-sm-6">
 						<div class="contactinfo">
 							<ul class="nav nav-pills">
-								<li><a href="#"><i class="fa fa-envelope"></i> <?= $data['user_data']->email ?></a></li>
 								<?php if(isset($data['user_data'])): ?>
+									<li><a href="#"><i class="fa fa-envelope"></i> <?= $data['user_data']->email ?></a></li>
 									<li><a href="#"><i class="fa fa-user"></i> <?= $data['user_data']->name ?></a></li>
 								<?php endif; ?>
 							</ul>
