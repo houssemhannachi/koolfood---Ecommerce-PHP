@@ -16,11 +16,11 @@
 
 	    				<?php if(is_array($errors) && count($errors)>0):?>
 	    					<?php foreach ($errors as $error):?>
-	    						<div class="status alert alert-danger" style=""><?=$error?></div>
+	    						<div class="status alert alert-danger"><?=$error?></div>
 	    					<?php endforeach;?>
 	    				<?php endif;?>
 	    				<?php if(isset($_GET['success'])):?>
-	    					<div class="status alert alert-success" style="">Message sent successfully</div>
+	    					<div class="status alert alert-success">Message sent successfully</div>
 	    				<?php endif;?>
 				    	<form id="main-contact-form" class="contact-form row" name="contact-form" method="post">
 				            <div class="form-group col-md-6">
@@ -57,10 +57,7 @@
 									<a href="<?=Settings::twitter_link()?>"><i class="fa fa-twitter"></i></a>
 								</li>
 								<li>
-									<a href="<?=Settings::google_plus_link()?>"><i class="fa fa-google-plus"></i></a>
-								</li>
-								<li>
-									<a href="#"><i class="fa fa-youtube"></i></a>
+									<a href="<?=Settings::youtube_link()?>"><i class="fa fa-youtube"></i></a>
 								</li>
 							</ul>
 	    				</div>

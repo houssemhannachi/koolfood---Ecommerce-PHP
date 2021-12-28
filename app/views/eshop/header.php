@@ -33,8 +33,7 @@
 					<div class="col-sm-6">
 						<div class="contactinfo">
 							<ul class="nav nav-pills">
-								<li><a href="#"><i class="fa fa-phone"></i> <?=Settings::phone_number()?></a></li>
-								<li><a href="#"><i class="fa fa-envelope"></i> <?=Settings::email()?></a></li>
+								<li><a href="#"><i class="fa fa-envelope"></i> <?= $data['user_data']->email ?></a></li>
 								<?php if(isset($data['user_data'])): ?>
 									<li><a href="#"><i class="fa fa-user"></i> <?= $data['user_data']->name ?></a></li>
 								<?php endif; ?>
@@ -48,7 +47,6 @@
 								<li><a target="_new" href="<?=Settings::twitter_link()?>"><i class="fa fa-twitter"></i></a></li>
 								<li><a target="_new" href="<?=Settings::linkedin_link()?>"><i class="fa fa-linkedin"></i></a></li>
 								<li><a target="_new" href="<?=Settings::website_link()?>"><i class="fa fa-dribbble"></i></a></li>
-								<li><a target="_new" href="<?=Settings::google_plus_link()?>"><i class="fa fa-google-plus"></i></a></li>
 							</ul>
 						</div>
 					</div>
