@@ -27,25 +27,6 @@ class Search
 			}
 		}
 	}
-	
-	public static function get_brands()
-	{
-		$DB = Database::newInstance();
-
-		$query = "select id, brand from brands where disabled = 0 order by views desc";
-		$data = $DB->read($query);
-
-		if(is_array($data))
-		{
-			$num = 0;
-			foreach ($data as $row) {
-				// code...
-				echo "<input ".self::get_sticky('checkbox','brand-'.$num,$row->id)." id=\"$row->id\" value=\"$row->id\" type=\"checkbox\" class=\"form-checkbox-input\" name=\"brand-$num\">
-                       	 							<label for=\"$row->id\">$row->brand</label> . &nbsp ";
-				$num++;
-			}
-		}
-	}
 
 	public static function get_years($name)
 	{
