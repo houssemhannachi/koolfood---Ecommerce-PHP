@@ -131,7 +131,7 @@
                               <tbody id="table_body">
 
                               	<?=$tbl_rows?>
-                              
+                             
                               </tbody>
                           </table>
                       </div><!-- /content-panel -->
