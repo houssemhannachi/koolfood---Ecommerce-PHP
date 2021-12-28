@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le : mar. 28 déc. 2021 à 14:41
--- Version du serveur : 10.4.21-MariaDB
--- Version de PHP : 8.0.10
+-- Hôte : 127.0.0.1:3306
+-- Généré le : mar. 28 déc. 2021 à 15:47
+-- Version du serveur :  5.7.31
+-- Version de PHP : 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,46 +24,38 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `brands`
---
-
-CREATE TABLE `brands` (
-  `id` int(11) NOT NULL,
-  `brand` varchar(30) NOT NULL,
-  `disabled` tinyint(1) NOT NULL DEFAULT 0,
-  `views` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `brands`
---
-
-INSERT INTO `brands` (`id`, `brand`, `disabled`, `views`) VALUES
-(1, 'Johnsons', 0, 0),
-(2, 'Ronhill', 0, 0),
-(3, 'Albiro', 0, 0),
-(4, 'Toyota', 0, 0);
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `categories`
 --
 
-CREATE TABLE `categories` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `categories`;
+CREATE TABLE IF NOT EXISTS `categories` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `category` varchar(30) NOT NULL,
-  `disabled` tinyint(1) NOT NULL DEFAULT 0,
+  `disabled` tinyint(1) NOT NULL DEFAULT '0',
   `parent` int(11) NOT NULL,
-  `views` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `views` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `category` (`category`),
+  KEY `disabled` (`disabled`),
+  KEY `parent` (`parent`),
+  KEY `views` (`views`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `categories`
 --
 
 INSERT INTO `categories` (`id`, `category`, `disabled`, `parent`, `views`) VALUES
-(12, 'Pizza', 0, 0, 0);
+(1, 'Food', 0, 0, 6),
+(2, 'Drinks', 0, 0, 15),
+(4, 'Sodas', 1, 0, 1),
+(5, 'Clothes', 0, 0, 2),
+(6, 'Meat', 0, 1, 0),
+(7, 'Bags', 0, 0, 0),
+(8, 'Cars', 0, 0, 0),
+(9, 'Hats', 0, 5, 3),
+(10, 'Shirts', 0, 5, 6),
+(11, 'Goodies', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -71,12 +63,16 @@ INSERT INTO `categories` (`id`, `category`, `disabled`, `parent`, `views`) VALUE
 -- Structure de la table `cities`
 --
 
-CREATE TABLE `cities` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `cities`;
+CREATE TABLE IF NOT EXISTS `cities` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent` int(11) NOT NULL,
   `city` varchar(30) NOT NULL,
-  `disabled` tinyint(4) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `disabled` tinyint(4) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `parent` (`parent`),
+  KEY `disabled` (`disabled`)
+) ENGINE=InnoDB AUTO_INCREMENT=175 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `cities`
@@ -253,14 +249,19 @@ INSERT INTO `cities` (`id`, `parent`, `city`, `disabled`) VALUES
 -- Structure de la table `contact_us`
 --
 
-CREATE TABLE `contact_us` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `contact_us`;
+CREATE TABLE IF NOT EXISTS `contact_us` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
   `email` varchar(100) NOT NULL,
   `subject` varchar(30) NOT NULL,
   `message` varchar(1000) NOT NULL,
-  `date` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `date` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `email` (`email`),
+  KEY `subject` (`subject`),
+  KEY `name` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `contact_us`
@@ -275,22 +276,28 @@ INSERT INTO `contact_us` (`id`, `name`, `email`, `subject`, `message`, `date`) V
 -- Structure de la table `orders`
 --
 
-CREATE TABLE `orders` (
-  `id` bigint(20) NOT NULL,
+DROP TABLE IF EXISTS `orders`;
+CREATE TABLE IF NOT EXISTS `orders` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `user_url` varchar(60) NOT NULL,
   `description` varchar(20) NOT NULL,
   `delivery_address` varchar(1024) DEFAULT NULL,
-  `total` double NOT NULL DEFAULT 0,
+  `total` double NOT NULL DEFAULT '0',
   `state` varchar(20) DEFAULT NULL,
   `city` varchar(20) DEFAULT NULL,
   `zip` varchar(6) DEFAULT NULL,
-  `tax` double DEFAULT 0,
-  `shipping` double DEFAULT 0,
+  `tax` double DEFAULT '0',
+  `shipping` double DEFAULT '0',
   `date` datetime NOT NULL,
   `sessionid` varchar(30) NOT NULL,
   `home_phone` varchar(15) NOT NULL,
-  `mobile_phone` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `mobile_phone` varchar(15) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `userid` (`user_url`),
+  KEY `date` (`date`),
+  KEY `sessionid` (`sessionid`),
+  KEY `description` (`description`)
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `orders`
@@ -332,15 +339,19 @@ INSERT INTO `orders` (`id`, `user_url`, `description`, `delivery_address`, `tota
 -- Structure de la table `order_details`
 --
 
-CREATE TABLE `order_details` (
-  `id` bigint(20) NOT NULL,
+DROP TABLE IF EXISTS `order_details`;
+CREATE TABLE IF NOT EXISTS `order_details` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `orderid` bigint(20) NOT NULL,
   `qty` int(11) NOT NULL,
   `description` varchar(200) NOT NULL,
   `amount` double NOT NULL,
   `total` double NOT NULL,
-  `productid` bigint(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `productid` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `orderid` (`orderid`),
+  KEY `description` (`description`)
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `order_details`
@@ -396,8 +407,9 @@ INSERT INTO `order_details` (`id`, `orderid`, `qty`, `description`, `amount`, `t
 -- Structure de la table `products`
 --
 
-CREATE TABLE `products` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `products`;
+CREATE TABLE IF NOT EXISTS `products` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_url` varchar(60) NOT NULL,
   `description` varchar(200) NOT NULL,
   `category` int(11) NOT NULL,
@@ -408,8 +420,16 @@ CREATE TABLE `products` (
   `image3` varchar(500) DEFAULT NULL,
   `image4` varchar(500) DEFAULT NULL,
   `date` datetime NOT NULL,
-  `slag` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `slag` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `slag` (`slag`),
+  KEY `date` (`date`),
+  KEY `quantity` (`quantity`),
+  KEY `price` (`price`),
+  KEY `category` (`category`),
+  KEY `description` (`description`),
+  KEY `user_url` (`user_url`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `products`
@@ -421,9 +441,7 @@ INSERT INTO `products` (`id`, `user_url`, `description`, `category`, `price`, `q
 (9, 'IYHtfbbTBkpFExy', 'Milo Candy Bar', 1, 12.99, 100, 'uploads/images.jpg', 'uploads/banetti-foods.jpg', '', '', '2021-03-16 20:16:54', 'milo-candy-bar'),
 (10, 'IYHtfbbTBkpFExy', 'Alcohol', 2, 0.21, 6, 'uploads/yKqmWfrNPKYgOV4FLQHuzzi4iJnqaae09dQA2iedeffJCK7c9PSsVnSvjRIV.jpg', '', '', '', '2021-06-06 15:20:36', 'alcohol'),
 (11, 'IYHtfbbTBkpFExy', 'Meat Burger', 6, 0.21, 6, 'uploads/mJVdNoskTywnobsA6A6mCaVCD7OJ8xxTl7cwV9Hth1O5Z0aiqDdA3stCYnQY.jpg', '', '', '', '2021-06-06 15:21:24', 'meat-burger'),
-(12, 'IYHtfbbTBkpFExy', 'Halo', 10, 0.21, 6, 'uploads/UG8XjjVu7HTW1j6b4vfB9f2YqUVl0PbZ3WUXBU3LgXadugDVTCwua61u7Nrc.jpg', '', '', '', '2021-06-06 15:21:55', 'halo'),
 (13, 'IYHtfbbTBkpFExy', 'So Good', 2, 0.21, 6, 'uploads/6evwk0NfONIp1SkN6Lzu0bprGHDUoJKA0RL3Fw6A6Epo6f9VQUAfB0YpN4w0.jpg', '', '', '', '2021-06-06 15:22:18', 'so-good'),
-(14, 'IYHtfbbTBkpFExy', 'Traditions', 11, 0.21, 6, 'uploads/peCbYjssuVJWFRn5kS4w7AqZRimede6JLo2xRNAV264TTREC5abm9lpVQrfJ.jpg', '', '', '', '2021-06-06 15:24:01', 'tradition'),
 (15, 'IYHtfbbTBkpFExy', 'Some Product', 1, 0.08, 6, 'uploads/gfSXekdGkmQhkHE2GXDe29Cm2PN6MqrKFfLf5TK1rljqbO3Pfqopz5km5bKe.jpg', '', '', '', '2021-06-16 19:13:37', 'some-product');
 
 -- --------------------------------------------------------
@@ -432,26 +450,26 @@ INSERT INTO `products` (`id`, `user_url`, `description`, `category`, `price`, `q
 -- Structure de la table `settings`
 --
 
-CREATE TABLE `settings` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `settings`;
+CREATE TABLE IF NOT EXISTS `settings` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `setting` varchar(30) DEFAULT NULL,
   `value` varchar(2048) DEFAULT NULL,
-  `type` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `type` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `setting` (`setting`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `settings`
 --
 
 INSERT INTO `settings` (`id`, `setting`, `value`, `type`) VALUES
-(1, 'phone_number', '+3867 676636 76373', ''),
-(2, 'email', 'info@mywebsite.com', ''),
 (3, 'facebook_link', 'https://www.facebook.com', ''),
 (4, 'twitter_link', 'https://www.twitter.com', ''),
 (5, 'linkedin_link', '', ''),
-(6, 'google_plus_link', '', ''),
 (7, 'website_link', '', ''),
-(8, 'youtube_link', '', ''),
+(8, 'youtube_link', 'https://www.youtube.com', ''),
 (9, 'contact_info', 'E-Shopper Inc.\r\n\r\n<b>935 W. Webster Ave New Streets Chicago, IL 60614, NY</b>\r\n\r\nNewyork USA\r\n\r\nMobile: +2346 17 38 93\r\n\r\nFax: 1-714-252-0026\r\n\r\nEmail: info@e-shopper.com', 'textarea');
 
 -- --------------------------------------------------------
@@ -460,16 +478,19 @@ INSERT INTO `settings` (`id`, `setting`, `value`, `type`) VALUES
 -- Structure de la table `slider_images`
 --
 
-CREATE TABLE `slider_images` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `slider_images`;
+CREATE TABLE IF NOT EXISTS `slider_images` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `header1_text` varchar(20) NOT NULL,
   `header2_text` varchar(30) DEFAULT NULL,
   `text` varchar(200) NOT NULL,
   `link` varchar(200) DEFAULT NULL,
   `image` varchar(500) DEFAULT NULL,
   `image2` varchar(500) DEFAULT NULL,
-  `disabled` tinyint(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `disabled` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `disabled` (`disabled`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `slider_images`
@@ -486,11 +507,14 @@ INSERT INTO `slider_images` (`id`, `header1_text`, `header2_text`, `text`, `link
 -- Structure de la table `states`
 --
 
-CREATE TABLE `states` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `states`;
+CREATE TABLE IF NOT EXISTS `states` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `state` varchar(30) NOT NULL,
-  `disabled` tinyint(4) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `disabled` tinyint(4) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `disabled` (`disabled`)
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `states`
@@ -528,15 +552,22 @@ INSERT INTO `states` (`id`, `state`, `disabled`) VALUES
 -- Structure de la table `users`
 --
 
-CREATE TABLE `users` (
-  `id` bigint(20) NOT NULL,
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `url_address` varchar(60) NOT NULL,
   `name` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(64) NOT NULL,
   `date` datetime NOT NULL,
-  `rank` varchar(8) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `rank` varchar(8) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `url_address` (`url_address`),
+  KEY `email` (`email`),
+  KEY `name` (`name`),
+  KEY `rank` (`rank`),
+  KEY `date` (`date`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `users`
@@ -545,180 +576,6 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `url_address`, `name`, `email`, `password`, `date`, `rank`) VALUES
 (3, 'BX8z7P6oUmwRDwR3yGlJdJH', 'Mary', 'mary@yahoo.com', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '2021-02-02 14:57:34', 'customer'),
 (4, 'IYHtfbbTBkpFExy', 'XXXXX', 'X@XX.COM', 'd712a38ada1b58a0a561d8bb249d9f0668b25047', '2021-12-24 21:46:02', 'admin');
-
---
--- Index pour les tables déchargées
---
-
---
--- Index pour la table `brands`
---
-ALTER TABLE `brands`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `category` (`brand`),
-  ADD KEY `disabled` (`disabled`),
-  ADD KEY `views` (`views`),
-  ADD KEY `brand` (`brand`);
-
---
--- Index pour la table `categories`
---
-ALTER TABLE `categories`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `category` (`category`),
-  ADD KEY `disabled` (`disabled`),
-  ADD KEY `parent` (`parent`),
-  ADD KEY `views` (`views`);
-
---
--- Index pour la table `cities`
---
-ALTER TABLE `cities`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `parent` (`parent`),
-  ADD KEY `disabled` (`disabled`);
-
---
--- Index pour la table `contact_us`
---
-ALTER TABLE `contact_us`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `email` (`email`),
-  ADD KEY `subject` (`subject`),
-  ADD KEY `name` (`name`);
-
---
--- Index pour la table `orders`
---
-ALTER TABLE `orders`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `userid` (`user_url`),
-  ADD KEY `date` (`date`),
-  ADD KEY `sessionid` (`sessionid`),
-  ADD KEY `description` (`description`);
-
---
--- Index pour la table `order_details`
---
-ALTER TABLE `order_details`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `orderid` (`orderid`),
-  ADD KEY `description` (`description`);
-
---
--- Index pour la table `products`
---
-ALTER TABLE `products`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `slag` (`slag`),
-  ADD KEY `date` (`date`),
-  ADD KEY `quantity` (`quantity`),
-  ADD KEY `price` (`price`),
-  ADD KEY `category` (`category`),
-  ADD KEY `description` (`description`),
-  ADD KEY `user_url` (`user_url`);
-
---
--- Index pour la table `settings`
---
-ALTER TABLE `settings`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `setting` (`setting`);
-
---
--- Index pour la table `slider_images`
---
-ALTER TABLE `slider_images`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `disabled` (`disabled`);
-
---
--- Index pour la table `states`
---
-ALTER TABLE `states`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `disabled` (`disabled`);
-
---
--- Index pour la table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `url_address` (`url_address`),
-  ADD KEY `email` (`email`),
-  ADD KEY `name` (`name`),
-  ADD KEY `rank` (`rank`),
-  ADD KEY `date` (`date`);
-
---
--- AUTO_INCREMENT pour les tables déchargées
---
-
---
--- AUTO_INCREMENT pour la table `brands`
---
-ALTER TABLE `brands`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT pour la table `categories`
---
-ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- AUTO_INCREMENT pour la table `cities`
---
-ALTER TABLE `cities`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=175;
-
---
--- AUTO_INCREMENT pour la table `contact_us`
---
-ALTER TABLE `contact_us`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT pour la table `orders`
---
-ALTER TABLE `orders`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
-
---
--- AUTO_INCREMENT pour la table `order_details`
---
-ALTER TABLE `order_details`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
-
---
--- AUTO_INCREMENT pour la table `products`
---
-ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
---
--- AUTO_INCREMENT pour la table `settings`
---
-ALTER TABLE `settings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT pour la table `slider_images`
---
-ALTER TABLE `slider_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT pour la table `states`
---
-ALTER TABLE `states`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
-
---
--- AUTO_INCREMENT pour la table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
