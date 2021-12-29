@@ -106,7 +106,7 @@
 			                              </div>
 			                          </div>
 
-              	  	  					<button type="button" class="btn btn-warning" onclick="show_edit_category(0,'',event)" style="position:absolute;bottom:10px; left:10px;">Cancel</button>
+              	  	  					<button type="button" class="btn btn-warning" onclick="show_edit_category(0,'','',false)" style="position:absolute;bottom:10px; left:10px;">Cancel</button>
               	  	  					<button type="button" class="btn btn-primary" onclick="collect_edit_data(event)" style="position:absolute;bottom:10px; right:10px;">Save</button>
 			                   
 			                      </form>
