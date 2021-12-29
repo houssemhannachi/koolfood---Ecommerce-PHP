@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 28 déc. 2021 à 15:47
+-- Généré le : mer. 29 déc. 2021 à 22:39
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -46,16 +46,10 @@ CREATE TABLE IF NOT EXISTS `categories` (
 --
 
 INSERT INTO `categories` (`id`, `category`, `disabled`, `parent`, `views`) VALUES
-(1, 'Food', 0, 0, 6),
-(2, 'Drinks', 0, 0, 15),
-(4, 'Sodas', 1, 0, 1),
-(5, 'Clothes', 0, 0, 2),
-(6, 'Meat', 0, 1, 0),
-(7, 'Bags', 0, 0, 0),
-(8, 'Cars', 0, 0, 0),
-(9, 'Hats', 0, 5, 3),
-(10, 'Shirts', 0, 5, 6),
-(11, 'Goodies', 0, 0, 0);
+(2, 'Drinks', 0, 0, 0),
+(5, 'Pizzas', 0, 0, 0),
+(6, 'Sandwiches', 0, 0, 0),
+(7, 'Tunisians', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -429,20 +423,26 @@ CREATE TABLE IF NOT EXISTS `products` (
   KEY `category` (`category`),
   KEY `description` (`description`),
   KEY `user_url` (`user_url`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `products`
 --
 
 INSERT INTO `products` (`id`, `user_url`, `description`, `category`, `price`, `quantity`, `image`, `image2`, `image3`, `image4`, `date`, `slag`) VALUES
-(7, 'IYHtfbbTBkpFExy', 'Burger 250g With Drink', 1, 9.99, 8, 'uploads/6f7bd4cc3677b6e4ce2aeb249bfa2c32.jpg', 'uploads/Burger.jpg', 'uploads/glenlivet-12.jpg', 'uploads/sogood-landing.jpg', '2021-03-16 19:36:12', 'burger-250g-with-drink'),
-(8, 'IYHtfbbTBkpFExy', 'Weet Bix 1.4 Kg', 1, 20.99, 9, 'uploads/UT83WqLXMBXXXagOFbX9.jpg', 'uploads/getmedia_3dad7ab1-ce4b-40e7-b409-82013a7f2c4b_2020_Website_Title_WB.jpg width=760&height=460&ext=.jpg', 'uploads/banetti-foods.jpg', 'uploads/351396-01.jpg-1200Wx1200H.jpg', '2021-03-16 20:07:08', 'weet-bix-1-4-kg'),
-(9, 'IYHtfbbTBkpFExy', 'Milo Candy Bar', 1, 12.99, 100, 'uploads/images.jpg', 'uploads/banetti-foods.jpg', '', '', '2021-03-16 20:16:54', 'milo-candy-bar'),
-(10, 'IYHtfbbTBkpFExy', 'Alcohol', 2, 0.21, 6, 'uploads/yKqmWfrNPKYgOV4FLQHuzzi4iJnqaae09dQA2iedeffJCK7c9PSsVnSvjRIV.jpg', '', '', '', '2021-06-06 15:20:36', 'alcohol'),
-(11, 'IYHtfbbTBkpFExy', 'Meat Burger', 6, 0.21, 6, 'uploads/mJVdNoskTywnobsA6A6mCaVCD7OJ8xxTl7cwV9Hth1O5Z0aiqDdA3stCYnQY.jpg', '', '', '', '2021-06-06 15:21:24', 'meat-burger'),
-(13, 'IYHtfbbTBkpFExy', 'So Good', 2, 0.21, 6, 'uploads/6evwk0NfONIp1SkN6Lzu0bprGHDUoJKA0RL3Fw6A6Epo6f9VQUAfB0YpN4w0.jpg', '', '', '', '2021-06-06 15:22:18', 'so-good'),
-(15, 'IYHtfbbTBkpFExy', 'Some Product', 1, 0.08, 6, 'uploads/gfSXekdGkmQhkHE2GXDe29Cm2PN6MqrKFfLf5TK1rljqbO3Pfqopz5km5bKe.jpg', '', '', '', '2021-06-16 19:13:37', 'some-product');
+(23, 'IYHtfbbTBkpFExy', 'Boga', 2, 1, 1, 'uploads/ODuMyTjsZ45S8mqNsddiHdjpFjnRMoeBivYUojhnOLm067z5v4UnJspxP3hj.jpg', '', '', '', '2021-12-29 22:26:36', 'boga'),
+(24, 'IYHtfbbTBkpFExy', 'Coca Cola', 2, 1, 1, 'uploads/M06Sb3qjBExT84lRlhY7sJroFAVst0GxLsy7rSUK54eS4loyNmOFtaZBHA0W.jpg', '', '', '', '2021-12-29 22:27:09', 'coca-cola'),
+(25, 'IYHtfbbTBkpFExy', 'Fanta', 2, 1, 1, 'uploads/w4o7csQxhfsUTkrUbQGFujNfF4wvtS5opD9A4MKWhVVbPNZmQDtJyAtAbjBq.jpg', '', '', '', '2021-12-29 22:27:22', 'fanta'),
+(26, 'IYHtfbbTBkpFExy', 'Pizza Margeritta', 5, 1, 1, 'uploads/8iTYsweFRQoAhnSQwCD88ExlbdfZtTLYmd0g9XJxpWSdYYJzdj5IhKkfsDwD.jpg', '', '', '', '2021-12-29 22:27:44', 'pizza-margeritta'),
+(27, 'IYHtfbbTBkpFExy', 'Pizza Fruits De Mer', 5, 1, 1, 'uploads/G2wrdFK3Jr9BQwnBLxbOwrBsNiX8CaAKKMsvPG1dQ4o1pTIlpQrEHAZ6j2SE.jpg', '', '', '', '2021-12-29 22:28:05', 'pizza-fruits-de-mer'),
+(28, 'IYHtfbbTBkpFExy', 'Pizza Thon', 5, 1, 1, 'uploads/4Ps9YKmp8crfu3Bh2VItB4xXBdylAvNBk190tKRLnb1DW9BeofsiFWhoPg37.jpg', '', '', '', '2021-12-29 22:28:20', 'pizza-thon'),
+(29, 'IYHtfbbTBkpFExy', 'Chapati', 6, 1, 1, 'uploads/JtN59yR7icEEjkGVm9OGOYFywZRvdpUfRufwwrk4xrSsWtngOukb6FUdoPPa.jpg', '', '', '', '2021-12-29 22:29:59', 'chapati'),
+(30, 'IYHtfbbTBkpFExy', 'Makloub', 6, 1, 1, 'uploads/fcI4bk53oaDCYMoWqPtQJaDdD8OP0kQcP3zj9M5bk9DJbo9dZpDkSqjmFuFW.jpg', '', '', '', '2021-12-29 22:30:50', 'makloub'),
+(31, 'IYHtfbbTBkpFExy', 'Sandwich Thon', 6, 1, 1, 'uploads/AOR0vghvJREgdcjgxNKry2BdtUEDH8ueKnOfN4fetTz8AnuLHgRlqxyuOLFr.jpg', '', '', '', '2021-12-29 22:31:22', 'sandwich-thon'),
+(32, 'IYHtfbbTBkpFExy', 'Couscous', 7, 1, 1, 'uploads/CorbRbRinceRi10lbZIfEBDSGz1WWY5vUuiulCqD83axc9ugSXHoIE2llTSc.jpg', '', '', '', '2021-12-29 22:32:08', 'couscous'),
+(33, 'IYHtfbbTBkpFExy', 'Marka', 7, 1, 1, 'uploads/OLF4Vna4eXXi3dXW4m7KR4p15vl3S5tcLrLuf7QMeCvsIlEsa9lwDNG9aNOS.jpg', '', '', '', '2021-12-29 22:32:23', 'marka'),
+(34, 'IYHtfbbTBkpFExy', 'Lablebi', 7, 1, 1, 'uploads/PJrfg3mZSObtD0GVNq3JDuQwydYyaC6ZZtnoyAEMJSPk2oH2f2ozZlSmTN6m.jpg', '', '', '', '2021-12-29 22:32:36', 'lablebi'),
+(35, 'IYHtfbbTBkpFExy', 'Mouloukhia', 7, 1, 1, 'uploads/hEgzu5MUH0CqVQn9RVcUtUvkc6WuvIkORAgMey1MvqwFJGoDeKiXJzyZL5ul.jpg', '', '', '', '2021-12-29 22:33:38', 'mouloukhia');
 
 -- --------------------------------------------------------
 
@@ -497,9 +497,7 @@ CREATE TABLE IF NOT EXISTS `slider_images` (
 --
 
 INSERT INTO `slider_images` (`id`, `header1_text`, `header2_text`, `text`, `link`, `image`, `image2`, `disabled`) VALUES
-(1, 'E-SHOP', 'Awesome Food', 'This food is awesome. try it and let me know what ya think', 'http://localhost/eshop/public/product_details/burger-250g-with-drink', 'uploads/TVqski4iWztdtAL1lTOYioOeV7L0XM767EyiWiZ5ZdzuOuZ9XhA6FE3rX3LK.jpg', '', 0),
-(2, 'E-SHOP STUFF', 'Milo Is The Best', 'As you already know Milo is awesome. everyone already knows its awesome', 'http://localhost/eshop/public/product_details/milo-candy-bar', 'uploads/gHmC5YMOwdiLKJFMH6mzr1pHGpNrLAS4gDtpK8zKhbXa639sJw5YJazX4LI0.jpg', '', 0),
-(3, 'Awesome Bix', 'This Is Great Food', 'The food on this picture is awesome. try it and let us know', 'http://localhost/eshop/public/product_details/weet-bix-1-4-kg', 'uploads/2hu6d0OKjiX0wrPuoj9GZoaDLUIKNa0Y8qkZr1CHol8NtkTRyTaKVj2389NN.jpg', '', 0);
+(3, 'Awesome', 'This Is Great Food', 'The food on this picture is awesome. try it and let us know', 'http://localhost/koolfood/public/product_details/pizza-margeritta', 'uploads/8iTYsweFRQoAhnSQwCD88ExlbdfZtTLYmd0g9XJxpWSdYYJzdj5IhKkfsDwD.jpg', '', 0);
 
 -- --------------------------------------------------------
 
