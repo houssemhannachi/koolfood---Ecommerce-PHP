@@ -1,15 +1,10 @@
-<?php 
+<?php
 
-Class hello extends Controller
+class hello extends Controller
 {
-
 	public function index()
 	{
 		$data['page_title'] = "hello";
-		
-		
-         echo $_GET['qty'];
-    	}
-
-
+		echo $_GET['qty'];
+	}
 }

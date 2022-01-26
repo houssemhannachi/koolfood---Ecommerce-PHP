@@ -1,64 +1,56 @@
-<?php 
+<?php
 
-Class Order extends Controller
+class Order extends Controller
 {
 	public $errors = array();
 
-	public function validate($POST){
-
+	public function validate($POST)
+	{
 		$this->errors = array();
 		foreach ($POST as $key => $value) {
-			# code...
-
-			if($key == "state"){
-				if($value == "" || $value == "-- State --"){
+			if ($key == "state") {
+				if ($value == "" || $value == "-- State --") {
 					$this->errors[] = "Please enter a valid state";
 				}
 			}
 
-			if($key == "city"){
-				if($value == "" || $value == "-- City --"){
+			if ($key == "city") {
+				if ($value == "" || $value == "-- City --") {
 					$this->errors[] = "Please enter a valid city";
 				}
 			}
 
-			if($key == "address1"){
-				if(empty($value)){
+			if ($key == "address1") {
+				if (empty($value)) {
 					$this->errors[] = "Please enter a valid address 1";
 				}
 			}
 
-			if($key == "postal_code"){
-				if(empty($value)){
+			if ($key == "postal_code") {
+				if (empty($value)) {
 					$this->errors[] = "Please enter a valid postal code";
 				}
 			}
 
-			if($key == "mobile_phone"){
-				if(empty($value)){
+			if ($key == "mobile_phone") {
+				if (empty($value)) {
 					$this->errors[] = "Please enter a valid mobile number";
 				}
 			}
-
-			
-			
 		}
 	}
 
-	public function save_order($POST,$ROWS,$user_url,$sessionid)
+	public function save_order($POST, $ROWS, $user_url, $sessionid)
 	{
- 
-
 		$db = Database::newInstance();
 
-		if(is_array($ROWS) && count($this->errors) == 0){
-
+		if (is_array($ROWS) && count($this->errors) == 0) {
 			$states = $this->load_model('states');
 
 			$data = array();
 			$data['user_url'] = $user_url;
 			$data['sessionid'] = $sessionid;
-			$data['delivery_address'] = $POST['address1'] . " ". $POST['address2'];
+			$data['delivery_address'] = $POST['address1'] . " " . $POST['address2'];
 			$data['total'] = $POST['total'];
 			$data['description'] = $POST['description'];
 			//$state_obj = $states->get_state($POST['state']);
@@ -77,7 +69,7 @@ Class Order extends Controller
 			$query = "select id from orders order by id desc limit 1";
 			$result = $db->read($query);
 
-			if(is_array($result)){
+			if (is_array($result)) {
 				$orderid = $result[0]->id + 1;
 			}
 
@@ -86,11 +78,10 @@ Class Order extends Controller
 			values 
 			(:description,:user_url,:delivery_address,:total,:state,:city,:zip,:tax,:shipping,:date,:sessionid,:mobile_phone,:home_phone)";
 
-			$result = $db->write($query,$data);
+			$result = $db->write($query, $data);
 
 
 			foreach ($ROWS as $row) {
-				# code...
 				$data = array();
 				$data['orderid'] = $orderid;
 				$data['qty'] = $row->cart_qty;
@@ -100,42 +91,38 @@ Class Order extends Controller
 				$data['productid'] = $row->id;
 
 				$query = "insert into order_details (orderid,qty,description,amount,total,productid) values (:orderid,:qty,:description,:amount,:total,:productid)";
-				$result = $db->write($query,$data);
+				$result = $db->write($query, $data);
 			}
 		}
 	}
 
-	public function get_orders_by_user($user_url){
-
+	public function get_orders_by_user($user_url)
+	{
 		$orders = false;
 
 		$db = Database::newInstance();
 		$data['user_url'] = $user_url;
 
 		$query = "select * from orders where user_url = :user_url order by id desc limit 100";
-		$orders = $db->read($query,$data);
+		$orders = $db->read($query, $data);
 
 		return $orders;
-
 	}
 
-	public function get_orders_count($user_url){
-
+	public function get_orders_count($user_url)
+	{
 		$db = Database::newInstance();
 		$data['user_url'] = $user_url;
 
 		$query = "select id from orders where user_url = :user_url ";
-		$result = $db->read($query,$data);
+		$result = $db->read($query, $data);
 
 		$orders = is_array($result) ? count($result) : 0;
 		return $orders;
-
 	}
 
-	
-
-	public function get_all_orders(){
-
+	public function get_all_orders()
+	{
 		$orders = false;
 
 		$db = Database::newInstance();
@@ -147,22 +134,17 @@ Class Order extends Controller
 		$orders = $db->read($query);
 
 		return $orders;
-
 	}
 
-	public function get_order_details($id){
-
+	public function get_order_details($id)
+	{
 		$details = false;
 		$data['id'] = addslashes($id);
 		$db = Database::newInstance();
 
 		$query = "select * from order_details where orderid = :id order by id desc";
-		$details = $db->read($query,$data);
+		$details = $db->read($query, $data);
 
 		return $details;
-
 	}
-
-	
-
 }

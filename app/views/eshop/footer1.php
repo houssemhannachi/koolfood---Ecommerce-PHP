@@ -1,4 +1,5 @@
-	<footer id="footer"><!--Footer-->
+	<footer id="footer">
+		<!--Footer-->
 		<div class="footer-top">
 			<div class="container">
 				<div class="row">
@@ -9,7 +10,7 @@
 						</div>
 					</div>
 					<div class="col-sm-7">
-				   
+
 					</div>
 					<div class="col-sm-3">
 						<div class="address">
@@ -20,7 +21,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="footer-widget">
 			<div class="container">
 				<div class="row">
@@ -33,8 +34,8 @@
 								<li><a href="#">Order Status</a></li>
 								<li><a href="#">Change Location</a></li>
 								<li><a href="#">FAQ’s</a></li>
-								<?php if(isset($data['user_data']) && $data['user_data']->rank == 'admin'): ?>
-									<li><a href="<?=ROOT?>admin">Admin</a></li>
+								<?php if (isset($data['user_data']) && $data['user_data']->rank == 'admin') : ?>
+									<li><a href="<?= ROOT ?>admin">Admin</a></li>
 								<?php endif; ?>
 							</ul>
 						</div>
@@ -85,11 +86,11 @@
 							</form>
 						</div>
 					</div>
-					
+
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="row">
@@ -98,16 +99,18 @@
 				</div>
 			</div>
 		</div>
-		
-	</footer><!--/Footer-->
-	
 
-  
-    <script src="<?= ASSETS . THEME ?>js/jquery.js"></script>
+	</footer>
+	<!--/Footer-->
+
+
+
+	<script src="<?= ASSETS . THEME ?>js/jquery.js"></script>
 	<script src="<?= ASSETS . THEME ?>js/bootstrap.min.js"></script>
 	<script src="<?= ASSETS . THEME ?>js/jquery.scrollUp.min.js"></script>
 	<script src="<?= ASSETS . THEME ?>js/price-range.js"></script>
-    <script src="<?= ASSETS . THEME ?>js/jquery.prettyPhoto.js"></script>
-    <script src="<?= ASSETS . THEME ?>js/main.js"></script>
-</body>
-</html>
+	<script src="<?= ASSETS . THEME ?>js/jquery.prettyPhoto.js"></script>
+	<script src="<?= ASSETS . THEME ?>js/main.js"></script>
+	</body>
+
+	</html>

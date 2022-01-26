@@ -94,8 +94,6 @@
 							<input value="<?php Search::get_sticky('number', 'max-price') ?>" class="form-control max-value" type="hidden" step="0.01" name="max-price">
 
 						</div>
-
-
 					</td>
 				</tr>
 				<tr>
@@ -114,7 +112,6 @@
 						</div>
 					</td>
 				</tr>
-
 				<tr>
 					<td>
 						<select class="form-control" name="year">

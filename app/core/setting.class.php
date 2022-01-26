@@ -1,13 +1,12 @@
-<?php 
+<?php
 
-Class Settings
+class Settings
 {
 	private $error = array();
 	protected static $SETTINGS = null;
 
 	public function get_all_settings()
 	{
-	
 		$db = Database::newInstance();
 		$query = "select * from settings";
 		return $db->read($query);
@@ -15,14 +14,13 @@ Class Settings
 
 	static function __callStatic($name, $params)
 	{
-		if(self::$SETTINGS){
-
+		if (self::$SETTINGS) {
 			$settings = self::$SETTINGS;
-		}else{
+		} else {
 			$settings = self::get_all_settings_as_object();
 		}
-		
-		if(isset($settings->$name)){
+
+		if (isset($settings->$name)) {
 			return $settings->$name;
 		}
 
@@ -36,9 +34,8 @@ Class Settings
 		$data = $db->read($query);
 
 		$settings = (object)[];
-		if(is_array($data)){
+		if (is_array($data)) {
 			foreach ($data as $row) {
-				# code...
 				$setting_name = $row->setting;
 				$settings->$setting_name = $row->value;
 			}
@@ -54,27 +51,23 @@ Class Settings
 		$this->error = array();
 
 		$db = Database::newInstance();
-		
+
 		foreach ($POST as $key => $value) {
-			# code...
 			$arr = array();
 			$arr['setting'] = $key;
 
-			if(strstr($key, "_link")){
-
-				if(trim($value) != "" && !strstr($value, "https://")){
+			if (strstr($key, "_link")) {
+				if (trim($value) != "" && !strstr($value, "https://")) {
 					$value = "https://" . $value;
 				}
 
 				$arr['value'] = $value;
-
-			}else{
+			} else {
 				$arr['value'] = $value;
 			}
 
 			$query = "update settings set value = :value where setting = :setting limit 1";
-			$db->write($query,$arr);
-			
+			$db->write($query, $arr);
 		}
 
 		return $this->error;
