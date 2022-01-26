@@ -30,8 +30,16 @@ Class Ajax_category extends Controller
 					$arr['data_type'] = "add_new";
 					
 					echo json_encode($arr);
-				}else
+				}else if(!$check)
 				{
+					$arr['message'] = "Category not added!";
+					$arr['message_type'] = "error";
+					$cats = $category->get_all();
+					$arr['data'] = $category->make_table($cats);
+					$arr['data_type'] = "add_new";
+
+					echo json_encode($arr);
+				} else {
 					$arr['message'] = "Category added successfully!";
 					$arr['message_type'] = "info";
 					$cats = $category->get_all();

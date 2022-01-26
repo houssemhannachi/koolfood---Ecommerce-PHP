@@ -8,8 +8,7 @@ Class Category
 	{
 
 		$DB = Database::newInstance(); 
-		$arr['category'] 	= ucwords($DATA->category);
-		$arr['parent'] 		= ucwords($DATA->parent);
+		$arr['category'] = ucwords($DATA->category);
 
 		if(!preg_match("/^[a-zA-Z ]+$/", trim($arr['category'])))
 		{
@@ -17,6 +16,11 @@ Class Category
 		}
 
 		if(!isset($_SESSION['error']) || $_SESSION['error'] == ""){
+			if(isset($DATA->parent) && $DATA->parent != ""){
+				$arr['parent'] = ucwords($DATA->parent);
+			} else {
+				$arr['parent'] = "0";
+			}
 			$query = "insert into categories (category,parent) values (:category,:parent)";
 			$check = $DB->write($query,$arr);
 
@@ -34,8 +38,12 @@ Class Category
 		$DB = Database::newInstance();
 		$arr['id'] = $data->id;
 		$arr['category'] = $data->category;
-		$arr['parent'] = $data->parent;
-		$query = "update categories set category = :category, parent = :parent where id = :id limit 1";
+		if(isset($data->parent) && $data->parent != ""){
+			$arr['parent'] = ucwords($data->parent);
+		} else {
+			$arr['parent'] = "0";
+		}
+		$query = "update categories set category = :category, parent = :parent where id = :id";
 		$DB->write($query,$arr);
 	}
 
