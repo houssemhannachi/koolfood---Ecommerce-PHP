@@ -61,8 +61,8 @@ class Admin extends Controller
 		if ($search) {
 
 			//generate a search query
-			// $query = Search::make_query($_GET);
-			// $products = $DB->read($query);
+			$query = Search::make_query($_GET);
+			$products = $DB->read($query);
 
 		} else {
 			$products = $DB->read("select * from products order by id desc");
