@@ -81,7 +81,7 @@ class Search
 	}
 
 
-	public static function make_query($GET,$limit,$offset)
+	public static function make_query($GET)
 	{
 			$params = array();
 
@@ -111,34 +111,10 @@ class Search
 				$params['min-qty'] =  (int)$GET['min-qty'];
 				$params['max-qty'] =  (int)$GET['max-qty'];
 			}
- 
-			$brands = array();
-			//add brands if available
-			foreach ($GET as $key => $value) {
-				// code...
-				if(strstr($key, "brand-")){
-					$brands[] = $value;
-				}
-			}
 
-			if(count($brands) > 0){
-
-				$params['brands'] = implode("','", $brands);
-			}
-
-			$query = "
-
-				SELECT prod.*,cat.category as category_name,brands.brand as brand_name 
-
-				FROM products as prod 
-				join categories as cat 
-				on cat.id = prod.category
-
-				join brands
-				on brands.id = prod.brand ";
+			$query = "SELECT prod.*,cat.category as category_name FROM products as prod join categories as cat on cat.id = prod.category";
 
 				if(count($params) > 0){
-
 					$query .= " WHERE ";
 				}
 
@@ -167,19 +143,11 @@ class Search
 
 					$query .= " YEAR(prod.date) = '$params[year]' AND ";
 				}
- 
-				if(isset($params['brands'])){
-
-					$query .= " brands.id in ('". $params['brands']."') AND ";
-				}
 
 			$query = trim($query);
 			$query = trim($query,'AND');
 			
-			$query .= "
-				order by prod.id desc limit $limit offset $offset
-
-			";
+			$query .= "order by prod.id desc";
 			
 			return $query;
 	}
