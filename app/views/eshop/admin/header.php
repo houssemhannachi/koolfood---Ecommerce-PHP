@@ -35,7 +35,7 @@
         <!--header start-->
         <header class="header black-bg">
             <div class="sidebar-toggle-box">
-                <div class="fa fa-bars tooltips" style="color:white" data-placement="right" data-original-title="Toggle Navigation"></div>
+                <div class="fa fa-bars tooltips" style="color:white " data-placement="right" data-original-title="Toggle Navigation"></div>
             </div>
             <!--logo start-->
             <a href="<?= ROOT ?>admin" class="logo"><img src="<?= ASSETS . THEME ?>images/home/lg.png?v=<?php echo time(); ?>" style="height:30px"alt="" /></a> 
