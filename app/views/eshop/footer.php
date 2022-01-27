@@ -3,30 +3,29 @@
 		<div class="footer-top">
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-2">
+					<div class="col-sm-4">
 						<div class="companyinfo">
-							<h2><span>e</span>-shopper</h2>
-							<p>This is the fastest, easiest and most convenient way to order your meals online in Tunisia, from your computer or smartphone, feel free to contact us and thank you for using our service.</p>
+						<img style="width : 160px; padding-bottom:20px"src="<?= ASSETS . THEME ?>images/home/lgb.png?v=<?php echo time(); ?>" alt="" />
+							<p style="text-align: justify;">This is the fastest, easiest and most convenient way to order your meals online in Tunisia.
+							From your computer or smartphone, feel free to contact us and thank you for using our service.</p>
 						</div>
 					</div>
-					<div class="col-sm-3"></div>
-					<div class="col-sm-3">
+					<div class="col-sm-4" style="text-align:center">
 						<div class="companyinfo">
-							<br />
-							<h2>Service</h2>
+
+							<h2 style="color:brown;font-style:ROBOTO">Services</h2>
 							<ul class="nav nav-pills nav-stacked">
-								<a href="http://localhost/kool/eshop/public/contact-us">Contact Us</a><br>
-								<a href="">Order Status</a>
+							<li><a href="<?= ROOT ?>contact-us">Contact Us</a></li>
+							<li><a href="">Order Status</a></li>
 								<?php if (isset($data['user_data']) && $data['user_data']->rank == 'admin') : ?>
 									<li><a href="<?= ROOT ?>admin">Admin</a></li>
 								<?php endif; ?>
 							</ul>
 						</div>
 					</div>
-					<div class="col-sm-1"></div>
-					<div class="col-sm-3">
+					<div class="col-sm-4">
 						<div class="address">
-							<img src="<?= ASSETS . THEME ?>images/home/tn.png" alt="" />
+							<img src="<?= ASSETS . THEME ?>images/home/tn.png?v=<?php echo time(); ?>" alt="" />
 							<p></p>
 						</div>
 					</div>
@@ -37,8 +36,7 @@
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="row">
-					<p class="pull-left">Copyright © 2021 E-SHOPPER Inc. All rights reserved.</p>
-					<p class="pull-right">Designed by Rafik, Houssem & Mohamed Amine</a></span></p>
+					<p style="text-align: center; color:black">Designed by Rafik, Houssem & Mohamed Amine</p>
 				</div>
 			</div>
 		</div>
