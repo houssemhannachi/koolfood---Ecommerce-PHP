@@ -28,7 +28,7 @@
 <!--/head-->
 
 <body>
-	<header id="header">
+	<header id="header" style="background-color:#c00a27">
 		<!--header-->
 		<div class="header_top">
 			<!--header_top-->
@@ -49,8 +49,6 @@
 							<ul class="nav navbar-nav">
 								<li><a target="_new" href="<?= Settings::facebook_link() ?>"><i class="fa fa-facebook"></i></a></li>
 								<li><a target="_new" href="<?= Settings::twitter_link() ?>"><i class="fa fa-twitter"></i></a></li>
-								<li><a target="_new" href="<?= Settings::linkedin_link() ?>"><i class="fa fa-linkedin"></i></a></li>
-								<li><a target="_new" href="<?= Settings::website_link() ?>"><i class="fa fa-dribbble"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -59,7 +57,7 @@
 		</div>
 		<!--/header_top-->
 
-		<div class="header-middle">
+		<div class="header-middle" style="width: 1200px; margin-right: auto;margin-left: auto;padding-left: 35px;padding-right: 35px;">
 			<!--header-middle-->
 			<div class="container">
 				<div class="row">
@@ -91,7 +89,7 @@
 		</div>
 		<!--/header-middle-->
 
-		<div class="header-bottom">
+		<div class="header-bottom" style="background-color: #c00a27">
 			<!--header-bottom-->
 			<div class="container">
 				<div class="row">
@@ -106,10 +104,11 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-
-								<li><a href="<?= ROOT ?>index" class="<?= $page_title == "Home" ? "active" : ""; ?>">Home</a></li>
-								<li class="dropdown"><a href="<?= ROOT ?>shop" class="<?= $page_title == "Shop" ? "active" : ""; ?>">Shop</a></li>
-								<li><a href="<?= ROOT ?>contact-us" class="<?= $page_title == "Contact-us" ? "active" : ""; ?>">Contact</a></li>
+								<?php if (isset($categories) && is_array($categories)) :
+									foreach ($categories as $cat) : ?>
+										<li class="dropdown"> <a href="<?= ROOT . "shop/category/" . $cat->category; ?>"><?= $cat->category ?> </a> </li>
+									<?php endforeach; ?>
+								<?php endif; ?>
 							</ul>
 						</div>
 					</div>
