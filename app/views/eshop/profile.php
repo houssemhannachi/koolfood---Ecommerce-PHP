@@ -51,14 +51,15 @@
 								<p><?= date("jS M Y", strtotime($profile_data->date)) ?></p>
 							</div>
 							<div class="col-md-6">
-								<p id="user_text" class="small mt">TOTAL SPEND</p>
+								
 								<?php if (is_array($orders)) :
 									$somme = 0; ?>
+									<p id="user_text" class="small mt">TOTAL SPEND</p>
 									<?php foreach ($orders as $order) :
 										$somme = $somme + $order->total; ?>
-										<?php endforeach; ?><?php endif; ?>
+										<?php endforeach; ?><p><?= $somme ?> </p><?php endif; ?>
 
-										<p><?= $somme ?> </p>
+										
 							</div>
 
 						</div>
