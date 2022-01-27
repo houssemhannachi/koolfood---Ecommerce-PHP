@@ -61,35 +61,7 @@ function get_total($ROWS)
 	return $total;
 }
 
-function is_paid($order)
-{
-	$arr['amount'] = addslashes($order->total);
-	$arr['order_id'] = addslashes($order->description);
 
-	$DB = Database::newInstance();
-	$payment = $DB->read("select id from payments where amount = :amount && order_id = :order_id limit 1", $arr);
-
-	if (is_array($payment)) {
-		return "<button class='btn btn-success'>Paid</button>";
-	}
-
-	return "<button class='btn btn-warning'>Not Paid</button>";
-}
-
-function is_paid_bol($order)
-{
-	$arr['amount'] = addslashes($order->total);
-	$arr['order_id'] = addslashes($order->description);
-
-	$DB = Database::newInstance();
-	$payment = $DB->read("select id from payments where amount = :amount && order_id = :order_id limit 1", $arr);
-
-	if (is_array($payment)) {
-		return true;
-	}
-
-	return false;
-}
 
 function get_admin_count()
 {
@@ -139,15 +111,3 @@ function get_categories_count()
 	return 0;
 }
 
-function get_payment_total()
-{
-	$DB = Database::newInstance();
-	$ROWS = $DB->read("select amount from payments ");
-
-	if (is_array($ROWS)) {
-		$amounts = array_column($ROWS, 'amount');
-		return array_sum($amounts);
-	}
-
-	return 0;
-}
