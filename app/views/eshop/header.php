@@ -7,13 +7,13 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<title><?= $data['page_title'] ?> | eShop</title>
-	<link href="<?= ASSETS . THEME ?>css/bootstrap.min.css" rel="stylesheet">
-	<link href="<?= ASSETS . THEME ?>css/font-awesome.min.css" rel="stylesheet">
-	<link href="<?= ASSETS . THEME ?>css/prettyPhoto.css" rel="stylesheet">
-	<link href="<?= ASSETS . THEME ?>css/price-range.css" rel="stylesheet">
-	<link href="<?= ASSETS . THEME ?>css/animate.css" rel="stylesheet">
+	<link href="<?= ASSETS . THEME ?>css/bootstrap.min.css?v=<?php echo time(); ?>" rel="stylesheet">
+	<link href="<?= ASSETS . THEME ?>css/font-awesome.min.css?v=<?php echo time(); ?>" rel="stylesheet">
+	<link href="<?= ASSETS . THEME ?>css/prettyPhoto.css?v=<?php echo time(); ?>" rel="stylesheet">
+	<link href="<?= ASSETS . THEME ?>css/price-range.css?v=<?php echo time(); ?>" rel="stylesheet">
+	<link href="<?= ASSETS . THEME ?>css/animate.css?v=<?php echo time(); ?>" rel="stylesheet">
 	<link href="<?= ASSETS . THEME ?>css/main.css?v=<?php echo time(); ?>" rel="stylesheet">
-	<link href="<?= ASSETS . THEME ?>css/responsive.css" rel="stylesheet">
+	<link href="<?= ASSETS . THEME ?>css/responsive.css?v=<?php echo time(); ?>" rel="stylesheet">
 	<!--[if lt IE 9]>
     <script src="<?= ASSETS . THEME ?>js/html5shiv.js"></script>
     <script src="<?= ASSETS . THEME ?>js/respond.min.js"></script>
@@ -70,15 +70,29 @@
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<?php if (isset($data['user_data']) && $data['user_data']->rank == 'admin') : ?>
-									<li><a href="<?= ROOT ?>profile"><i class="fa fa-user"></i> Account</a></li>
+								
+								<!-- <li><a href="<?= ROOT ?>checkout"><i class="fa fa-crosshairs"></i> Checkout</a></li> -->
+								
+									<li class="cart-content ">
+										<a href="<?= ROOT ?>cart" title="View your shopping cart">
+											<i class="fa fa-shopping-cart"></i>
+											<span>Go to Your Cart</span>
+										</a>
+										<ul class="sub-menu">
+											<li>
+												<a href="cart.html" title="View your shopping cart">
+													<span class="count">2 items</span> <span class="amount">$50.00</span>
+												</a>
+											</li>
+										</ul>
+									</li>
+									<?php if (isset($data['user_data']) && $data['user_data']->rank == 'admin') : ?>
+									<li style="padding-top:15px"><a href="<?= ROOT ?>profile"><i class="fa fa-user"></i> Account</a></li>
 								<?php endif; ?>
-								<li><a href="<?= ROOT ?>checkout"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li><a href="<?= ROOT ?>cart"><i class="fa fa-shopping-cart"></i> Cart</a></li>
 								<?php if (isset($data['user_data'])) : ?>
-									<li><a href="<?= ROOT ?>logout"><i class="fa fa-lock"></i> Logout</a></li>
+									<li style="padding-top:15px"><a href="<?= ROOT ?>logout"><i class="fa fa-lock"></i> Logout</a></li>
 								<?php else : ?>
-									<li><a href="<?= ROOT ?>login"><i class="fa fa-lock"></i> Login</a></li>
+									<li  style="padding-top:15px"><a href="<?= ROOT ?>login"><i class="fa fa-lock"></i> Login</a></li>
 								<?php endif; ?>
 
 							</ul>
