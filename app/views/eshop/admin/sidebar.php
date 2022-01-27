@@ -6,12 +6,6 @@
     <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-
-            <p class="centered"><a href="profile.html"><img src="<?= ASSETS . THEME ?>admin/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-            <h5 class="centered"><?= $data['user_data']->name ?></h5>
-            <h5 class="centered" style="font-size: 11px;"><?= $data['user_data']->email ?></h5>
-
-
             <li class="sub-menu">
                 <a href="javascript:;">
                     <i class="fa fa-dashboard"></i>
@@ -53,17 +47,17 @@
             </li>
 
             <li class="sub-menu">
-                <a <?= (isset($current_page) && $current_page == "settings") ? ' class="active" ' : ''; ?> href="<?= ROOT ?>admin/settings">
+                <a <?= (isset($current_page) && $current_page == "settings") ? ' class="active" ' : ''; ?> href="<?= ROOT ?>admin/settings/socials">
                     <i class="fa fa-cogs"></i>
-                    <span>Settings</span>
+                    <span>Social links</span>
                 </a>
-                <ul class="sub">
+                <!-- <ul class="sub">
                     <li><a href="<?= ROOT ?>admin/settings/slider_images">Slider Images</a></li>
-                </ul>
-
+                </ul> -->
+<!-- 
                 <ul class="sub">
                     <li><a href="<?= ROOT ?>admin/settings/socials">Social links / Contacts</a></li>
-                </ul>
+                </ul> -->
 
             </li>
 
