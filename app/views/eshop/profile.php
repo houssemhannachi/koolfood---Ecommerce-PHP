@@ -37,13 +37,13 @@
 			<!--profile data-->
 			<?php if (is_object($profile_data)) : ?>
 
-				<div class="col-md-4 mb" style="flex:1;background-color: #eee;text-align: center;box-shadow: 0px 0px 20px #aaa; border: solid thin #ddd;">
+				<div class="col-md-6 col-md-offset-3" style="flex:1;background-color: #eee;text-align: center;box-shadow: 0px 0px 20px #aaa; border: solid thin #ddd;">
 					<!-- WHITE PANEL - TOP USER -->
 					<div class="white-panel pn">
 						<div class="white-header" style="color:grey">
 							<h5>MY ACCOUNT</h5>
 						</div>
-						<p><img src="<?= ASSETS . THEME ?>admin/img/ui-zac.jpg" class="img-circle" width="80"></p>
+						<p><img src="<?= ASSETS . THEME ?>admin/img/houssem.jpg" class="img-circle" width="80"></p>
 						<p><b><?= $profile_data->name ?></b></p>
 						<div class="row">
 							<div class="col-md-6">
@@ -52,18 +52,20 @@
 							</div>
 							<div class="col-md-6">
 								<p id="user_text" class="small mt">TOTAL SPEND</p>
-								<p>$ 47,60</p>
+								<?php if (is_array($orders)) :
+									$somme = 0; ?>
+									<?php foreach ($orders as $order) :
+										$somme = $somme + $order->total; ?>
+										<?php endforeach; ?><?php endif; ?>
+
+										<p><?= $somme ?> </p>
 							</div>
 
 						</div>
+						<button onclick="show_hide()"><b>Factures</b></button>
 						<hr style="color:#888">
 						<div class="row">
-							<div class="col-md-6">
-								<p id="user_text" class="small mt" style="cursor: pointer;color: #13b8ea;"><i class="fa fa-edit"></i> EDIT</p>
-							</div>
-							<div class="col-md-6">
-								<p id="user_text" class="small mt" style="cursor: pointer;color:#e18b57;">DELETE</p>
-							</div>
+
 
 						</div>
 
@@ -76,26 +78,22 @@
 				<br><br style="clear: both;">
 				<?php if (is_array($orders)) : ?>
 
-					<table class="table">
+					<table class="table" id="table_factures" style="display:none">
 						<thead>
 							<tr>
 								<th>Order no</th>
 								<th>Order date</th>
 								<th>Total</th>
 								<th>Delivery Address</th>
-								<th>City/State</th>
+								<th>City</th>
 								<th>Mobile Phone</th>
-								<th>Status</th>
 								<th>...</th>
 							</tr>
 						</thead>
 						<tbody onclick="show_details(event)">
 							<?php foreach ($orders as $order) : ?>
 
-								<?php
-								$status = is_paid($order);
 
-								?>
 								<tr style="position: relative;">
 									<td><?= $order->id ?></td>
 									<td><?= date("jS M Y H:i a", strtotime($order->date)) ?></td>
@@ -103,7 +101,6 @@
 									<td><?= $order->delivery_address ?></td>
 									<td><?= $order->state ?></td>
 									<td><?= $order->mobile_phone ?>
-									<td><?= $status ?></td>
 									<td>
 										<i class="fa fa-arrow-down"></i>
 										<div class="js-order-details details hide">
@@ -156,6 +153,15 @@
 </section>
 
 <script type="text/javascript">
+	function show_hide() {
+		var x = document.getElementById("table_factures");
+		if (x.style.display === "none") {
+			x.style.display = "table";
+		} else {
+			x.style.display = "none";
+		}
+	}
+
 	function show_details(e) {
 
 		var row = e.target.parentNode;
