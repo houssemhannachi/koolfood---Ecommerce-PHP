@@ -24,7 +24,7 @@
 			<th>Email</th>
 			<th>Date created</th>
 			<th>Orders count</th>
-			<th>...</th>
+
 		</tr>
 	</thead>
 	<tbody>
