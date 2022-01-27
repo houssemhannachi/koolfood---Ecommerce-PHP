@@ -5,13 +5,7 @@
 <h3>Main admin page.</h3>
 
 <div class="row mtbox">
-	<div class="col-md-2 col-sm-2 col-md-offset-1 box0">
-		<div class="box1">
-			<span class="fa fa-user"></span>
-			<h3>$ <?= get_payment_total() ?> </h3>
-		</div>
-		<p><?= get_payment_total() ?> payment total so far!</p>
-	</div>
+	
 	<div class="col-md-2 col-sm-2 box0">
 		<div class="box1">
 			<span class="fa fa-copy"></span>
