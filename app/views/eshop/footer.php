@@ -16,7 +16,6 @@
 							<h2 style="color:brown;font-style:ROBOTO">Services</h2>
 							<ul class="nav nav-pills nav-stacked">
 							<li><a href="<?= ROOT ?>contact-us">Contact Us</a></li>
-							<li><a href="">Order Status</a></li>
 								<?php if (isset($data['user_data']) && $data['user_data']->rank == 'admin') : ?>
 									<li><a href="<?= ROOT ?>admin">Admin</a></li>
 								<?php endif; ?>
