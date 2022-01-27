@@ -331,7 +331,7 @@ ul.sub-menu {
 **************************/
 
 #footer {
-  background: #F0F0E9;
+  background: #f6f6f6;
 }
 
 
@@ -882,7 +882,7 @@ h2.title {
   transition: height 500ms ease 0s;
   width: 100%;
   display: block;
-  opacity:;
+ 
 }
 
 .single-products:hover .product-overlay {
@@ -2509,4 +2509,12 @@ h2.title {
 .shop-menu ul li a:hover
  {background-color: transparent;
 color: white; 
+}
+.footer-bottom{
+  background-color: #b4b4b4;
+  color: white;
+}
+
+.nav-stacked>li>a {
+  color:black
 }
