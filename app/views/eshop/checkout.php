@@ -14,8 +14,10 @@ if (isset($errors) && count($errors) > 0) {
 ?>
 <section id="cart_items">
 	<div class="container">
+	<br><br>
 		<div class="breadcrumbs">
 			<ol class="breadcrumb">
+				
 				<li><a href="#">Home</a></li>
 				<li class="active">Check out</li>
 			</ol>
@@ -24,9 +26,6 @@ if (isset($errors) && count($errors) > 0) {
 
 		<?php if (is_array($ROWS)) : ?>
 
-			<div class="register-req">
-				<p>Fileds with a * are required</p>
-			</div>
 			<!--/register-req-->
 
 			<?php
@@ -94,13 +93,7 @@ if (isset($errors) && count($errors) > 0) {
 								</div>
 							</div>
 						</div>
-						<div class="col-sm-4">
-							<div class="order-message">
-								<p>Shipping Order</p>
-								<textarea name="message" placeholder="Notes about your order, Special Notes for Delivery" rows="16"><?= $message ?></textarea>
-
-							</div>
-						</div>
+						
 					</div>
 
 					<input type="submit" class="btn btn-warning pull-right" value="Continue >" name="">
@@ -119,6 +112,7 @@ if (isset($errors) && count($errors) > 0) {
 			<input type="button" class="btn btn-warning pull-left" value="< Back to cart" name="">
 		</a>
 	</div>
+	<br> <br>
 </section>
 <!--/#cart_items-->
 
