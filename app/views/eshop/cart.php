@@ -1,10 +1,10 @@
 <?php $this->view("header", $data); ?>
 
-<section id="cart_items" style="margin-top: -50px;">
+<section id="cart_items" style="margin-top: 20px;">
 	<div class="container">
-		<div class="breadcrumbs">
-			<ol class="breadcrumb">
-				<li><a href="#">Home</a></li>
+		<div class="breadcrumbs"     style="width: 180px;">
+			<ol class="breadcrumb" >
+				<li><a href="<?= ROOT?>home">Home</a></li>
 				<li class="active">Shopping Cart</li>
 			</ol>
 		</div>
