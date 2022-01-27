@@ -5,7 +5,6 @@
 <h3>Main admin page.</h3>
 
 <div class="row mtbox">
-	
 	<div class="col-md-2 col-sm-2 box0">
 		<div class="box1">
 			<span class="fa fa-copy"></span>
