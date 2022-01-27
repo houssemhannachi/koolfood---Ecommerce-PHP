@@ -14,11 +14,11 @@ class User
 		$data['password'] 	= trim($POST['password']);
 		$password2 			= trim($POST['password2']);
 
-		if (empty($data['email']) || !preg_match("/^[a-zA-Z_-]+@[a-zA-Z]+.[a-zA-Z]+$/", $data['email'])) {
+		if (empty($data['email']) || !filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
 			$this->error .= "Please enter a valid email <br>";
 		}
 
-		if (empty($data['name']) || !preg_match("/^[a-zA-Z]+$/", $data['name'])) {
+		if (empty($data['name']) || !preg_match("/^[A-Za-z][A-Za-z\s]*$/", $data['name'])) {
 			$this->error .= "Please enter a valid name <br>";
 		}
 
@@ -79,7 +79,7 @@ class User
 		$data['email'] 		= trim($POST['email']);
 		$data['password'] 	= trim($POST['password']);
 
-		if (empty($data['email']) || !preg_match("/^[a-zA-Z_-]+@[a-zA-Z]+.[a-zA-Z]+$/", $data['email'])) {
+		if (empty($data['email']) || !filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
 			$this->error .= "Please enter a valid email <br>";
 		}
 
