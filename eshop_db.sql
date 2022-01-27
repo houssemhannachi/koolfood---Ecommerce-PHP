@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 29 déc. 2021 à 22:39
+-- Généré le : jeu. 27 jan. 2022 à 11:39
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
   KEY `disabled` (`disabled`),
   KEY `parent` (`parent`),
   KEY `views` (`views`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `categories`
@@ -430,7 +430,7 @@ CREATE TABLE IF NOT EXISTS `products` (
 --
 
 INSERT INTO `products` (`id`, `user_url`, `description`, `category`, `price`, `quantity`, `image`, `image2`, `image3`, `image4`, `date`, `slag`) VALUES
-(23, 'IYHtfbbTBkpFExy', 'Boga', 2, 1, 1, 'uploads/ODuMyTjsZ45S8mqNsddiHdjpFjnRMoeBivYUojhnOLm067z5v4UnJspxP3hj.jpg', '', '', '', '2021-12-29 22:26:36', 'boga'),
+(23, 'IYHtfbbTBkpFExy', 'Boga', 2, 1, 1, 'uploads/u8SHJocUjKHNuzk1cdkIeAreIDNwNAsJ3Lyf7bIRUGGlbYodZ8a72FcOConl.jpg', 'uploads/L1YR0Rs0tg4W4YL8w6NI8GNmnSxUeMAPbUm3GYnTUVLaNWRLSJcOgoHgdMv1.jpg', '', '', '2021-12-29 22:26:36', 'boga'),
 (24, 'IYHtfbbTBkpFExy', 'Coca Cola', 2, 1, 1, 'uploads/M06Sb3qjBExT84lRlhY7sJroFAVst0GxLsy7rSUK54eS4loyNmOFtaZBHA0W.jpg', '', '', '', '2021-12-29 22:27:09', 'coca-cola'),
 (25, 'IYHtfbbTBkpFExy', 'Fanta', 2, 1, 1, 'uploads/w4o7csQxhfsUTkrUbQGFujNfF4wvtS5opD9A4MKWhVVbPNZmQDtJyAtAbjBq.jpg', '', '', '', '2021-12-29 22:27:22', 'fanta'),
 (26, 'IYHtfbbTBkpFExy', 'Pizza Margeritta', 5, 1, 1, 'uploads/8iTYsweFRQoAhnSQwCD88ExlbdfZtTLYmd0g9XJxpWSdYYJzdj5IhKkfsDwD.jpg', '', '', '', '2021-12-29 22:27:44', 'pizza-margeritta'),
@@ -442,7 +442,7 @@ INSERT INTO `products` (`id`, `user_url`, `description`, `category`, `price`, `q
 (32, 'IYHtfbbTBkpFExy', 'Couscous', 7, 1, 1, 'uploads/CorbRbRinceRi10lbZIfEBDSGz1WWY5vUuiulCqD83axc9ugSXHoIE2llTSc.jpg', '', '', '', '2021-12-29 22:32:08', 'couscous'),
 (33, 'IYHtfbbTBkpFExy', 'Marka', 7, 1, 1, 'uploads/OLF4Vna4eXXi3dXW4m7KR4p15vl3S5tcLrLuf7QMeCvsIlEsa9lwDNG9aNOS.jpg', '', '', '', '2021-12-29 22:32:23', 'marka'),
 (34, 'IYHtfbbTBkpFExy', 'Lablebi', 7, 1, 1, 'uploads/PJrfg3mZSObtD0GVNq3JDuQwydYyaC6ZZtnoyAEMJSPk2oH2f2ozZlSmTN6m.jpg', '', '', '', '2021-12-29 22:32:36', 'lablebi'),
-(35, 'IYHtfbbTBkpFExy', 'Mouloukhia', 7, 1, 1, 'uploads/hEgzu5MUH0CqVQn9RVcUtUvkc6WuvIkORAgMey1MvqwFJGoDeKiXJzyZL5ul.jpg', '', '', '', '2021-12-29 22:33:38', 'mouloukhia');
+(35, 'IYHtfbbTBkpFExy', 'Mouloukhiya', 7, 1, 1, 'uploads/hEgzu5MUH0CqVQn9RVcUtUvkc6WuvIkORAgMey1MvqwFJGoDeKiXJzyZL5ul.jpg', '', '', '', '2021-12-29 22:33:38', 'mouloukhia');
 
 -- --------------------------------------------------------
 
