@@ -1,46 +1,43 @@
-	<footer id="footer">
-		<!--Footer-->
-		<div class="footer-top">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-4">
-						<div class="companyinfo">
-						<img style="width : 160px; padding-bottom:20px"src="<?= ASSETS . THEME ?>images/home/lgb.png?v=<?php echo time(); ?>" alt="" />
-							<p style="text-align: justify;">This is the fastest, easiest and most convenient way to order your meals online in Tunisia.
-							From your computer or smartphone, feel free to contact us and thank you for using our service.</p>
-						</div>
-					</div>
-					<div class="col-sm-4" style="text-align:center">
-						<div class="companyinfo">
-
-							<h2 style="color:brown;font-style:ROBOTO">Services</h2>
-							<ul class="nav nav-pills nav-stacked">
-							<li><a href="<?= ROOT ?>contact-us">Contact Us</a></li>
-								<?php if (isset($data['user_data']) && $data['user_data']->rank == 'admin') : ?>
-									<li><a href="<?= ROOT ?>admin">Admin</a></li>
+	
+	<footer id="colophon" class="site-footer footer-v1">
+            <div class="col-full">
+               <div class="footer-social-icons">
+                  <span class="social-icon-text">Follow us</span>
+                  <ul class="social-icons list-unstyled">
+                     <li><a class="fa fa-facebook" href="#"></a></li>
+                     <li><a class="fa fa-twitter" href="#"></a></li>
+                     <li><a class="fa fa-instagram" href="#"></a></li>
+                     <li><a class="fa fa-youtube" href="#"></a></li>
+                     <li><a class="fa fa-dribbble" href="#"></a></li>
+                  </ul>
+               </div>
+               <div class="footer-logo">
+                  <a href="index.html" class="custom-logo-link" rel="home">
+                     <img src="<?= ASSETS . THEME ?>images/home/lg.png?v=<?php echo time(); ?>"/>
+                  </a>
+               </div>
+               <div class="site-address">
+                  <br>
+                     This is the fastest, easiest and most convenient way 
+							
+to order your meals online in Tunisia.</br>
+                     From your computer or smartphone,<br>
+                      feel free to contact us and thank you for using our service.</br>
+					 <a href="<?= ROOT ?>contact-us">Contact Us </a><br>
+					 <?php if (isset($data['user_data']) && $data['user_data']->rank == 'admin') : ?>
+									<a href="<?= ROOT ?>admin">Admin</a></li>
 								<?php endif; ?>
-							</ul>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="address">
-							<img src="<?= ASSETS . THEME ?>images/home/tn.png?v=<?php echo time(); ?>" alt="" />
-							<p></p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="footer-bottom">
-			<div class="container">
-				<div class="row">
-					<p style="text-align: center; color:black">Designed by Rafik, Houssem & Mohamed Amine</p>
-				</div>
-			</div>
-		</div>
-
-	</footer>
+								
+                 
+               </div> <br><br>
+                  <p class="copyright">Copyright &copy;All rights reserved.</p>
+				  <p>Designed by Rafik, Houssem and Mohamed Amine.<br>
+				   
+  
+               
+            </div>
+            <!-- .col-full -->
+         </footer>
 	<!--/Footer-->
 
 
