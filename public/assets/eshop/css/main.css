@@ -52,7 +52,7 @@ a#scrollUp {
   bottom: 0px;
   right: 10px;
   padding: 5px 10px;
-  background: #FE980F;
+  background: #c00a27;
   color: #FFF;
   -webkit-animation: bounce 2s ease infinite;
   animation: bounce 2s ease infinite;
@@ -68,7 +68,7 @@ a#scrollUp i{
 **************************/
 
 .header_top {
-  background: none repeat scroll 0 0 #F0F0E9;
+  background: none repeat scroll 0 0 #c00a27;
 }
 
 .contactinfo ul li:first-child{
@@ -77,7 +77,7 @@ a#scrollUp i{
 
 .contactinfo ul li a{
   font-size: 12px;
-  color: #696763;
+  color: white;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -90,7 +90,7 @@ a#scrollUp i{
 .social-icons ul li a {
   border: 0 none;
   border-radius: 0;
-  color: #696763;
+  color: white;
   padding:0px;
 }
 
@@ -135,9 +135,11 @@ a#scrollUp i{
 .fa-google-plus:hover  {
 	background:#CE3C2D;
 }
-
+.header-middle{
+  background-color:#c00a27 ;
+}
 .header-middle .container .row {
-  border-bottom: 1px solid #f5f5f5;
+  
   margin-left: 0;
   margin-right: 0;
   padding-bottom: 20px;
@@ -198,8 +200,8 @@ a#scrollUp i{
 
 
 .shop-menu ul li a {
-  background: #FFFFFF;
-  color: #696763;
+
+  color: #e0e0e0;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   font-weight: 300;
@@ -214,10 +216,6 @@ a#scrollUp i{
 }
 
 
-.shop-menu ul li a:hover {
-	color:#fe980f;
-	background:#fff;
-}
 
 
 .header-bottom {
@@ -239,7 +237,7 @@ a#scrollUp i{
 }
 
 .mainmenu ul li a {
-	color: #696763;
+	color: #dddddd;
 	font-family: 'Roboto', sans-serif;
 	font-size: 17px;
 	font-weight: 300;
@@ -249,11 +247,11 @@ a#scrollUp i{
 
 .mainmenu ul li a:hover, .mainmenu ul li a.active,  .shop-menu ul li a.active{
 	background:none;
-	color:#fdb45e;
+	color:#ffffff;
 }
 
 .search_box input {
-  background: #F0F0E9;
+  background: #ffffff;
   border: medium none;
   color: #B2B2B2;
   font-family: 'roboto';
@@ -273,17 +271,11 @@ a#scrollUp i{
 
 .navbar-header 
 .navbar-toggle .icon-bar {
-    background-color: #fff;
 }
 
 
 .nav.navbar-nav > li:hover > ul.sub-menu{
-  display: block;
-  -webkit-animation: fadeInUp 400ms;
-  -moz-animation: fadeInUp 400ms;
-  -ms-animation: fadeInUp 400ms;
-  -o-animation: fadeInUp 400ms;
-  animation: fadeInUp 400ms;
+
 }
 
 ul.sub-menu {
@@ -302,7 +294,6 @@ ul.sub-menu {
 }
 
 .dropdown ul.sub-menu li .active{
-  color: #FDB45E;
   padding-left: 0;
 }
 
@@ -315,13 +306,7 @@ ul.sub-menu {
   padding-bottom: 20px;
 }
 
-.navbar-nav li ul.sub-menu li a{
-  color: #fff;
-}
 
-.navbar-nav li ul.sub-menu li a:hover{
-    color: #FDB45E;
-}
 
 .fa-angle-down{
   padding-left: 5px; 
@@ -405,7 +390,6 @@ ul.sub-menu {
   top: 0;
   width: 100%;
   height: 61px;
-  background: #FE980F;
   border-radius: 3px;
   color: #FFF;
   font-size: 20px;
@@ -599,7 +583,7 @@ ul.sub-menu {
   color: #B4B1AB;
   font-family: abel;
   font-size: 48px;
-  margin-top: 115px;
+  /* margin-top: 115px; */
 }
 
 .item h1 span {
@@ -768,7 +752,6 @@ h2.title:before{
 
 
 .brands-name .nav-stacked li a {
-  background-color: #FFFFFF;
   color: #696763;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
@@ -1381,8 +1364,7 @@ h2.title {
   font-size: 14px;
 }
 .logokoolfood > a>img {
-  width:140px;
-  height: 50px
+  width:200px;
 }
 
 /*************************
@@ -1540,7 +1522,7 @@ h2.title {
 }
 
 .breadcrumbs .breadcrumb li a {
-  background:#FE980F;
+  background:#c00a27;
   color: #FFFFFF;
   padding: 3px 7px;
 }
@@ -1551,7 +1533,7 @@ h2.title {
   width: auto;
   border-width: 8px;
   border-style: solid;
-  border-color:transparent transparent transparent #FE980F;
+  border-color:transparent transparent transparent #c00a27;
   position: absolute;
   top: 11px;
   left:48px;
@@ -1569,7 +1551,7 @@ h2.title {
 
 
 #cart_items .cart_info .cart_menu {
-  background: #FE980F;
+  background: #c00a27;
   color: #fff;
   font-size: 16px;
   font-family: 'Roboto', sans-serif;
@@ -1624,7 +1606,7 @@ h2.title {
 
 
 #cart_items .cart_info .cart_total_price {
-  color: #FE980F;
+  color: #c00a27;
   font-size: 24px;
 }
 
@@ -2524,3 +2506,7 @@ h2.title {
 }
 
 
+.shop-menu ul li a:hover
+ {background-color: transparent;
+color: white; 
+}
