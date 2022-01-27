@@ -77,11 +77,7 @@ if (isset($errors) && count($errors) > 0) {
 
 						</table>
 					</div>
-					<table style="width: 100%;background-color: #eee">
-						<tr>
-							<td style="text-align: center;padding: 1em;"><?= $order->message ?></td>
-						</tr>
-					</table>
+
 
 					<hr>
 					<h4>Order Summary</h4>
