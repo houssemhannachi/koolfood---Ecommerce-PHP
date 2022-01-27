@@ -26,8 +26,7 @@
 			<th>Delivery Address</th>
 			<th>City/State</th>
 			<th>Mobile Phone</th>
-			<th>Status</th>
-			<th>...</th>
+			<th>Details</th>
 		</tr>
 	</thead>
 	<tbody onclick="show_details(event)">
@@ -41,11 +40,9 @@
 					<td><?= date("jS M Y H:i a", strtotime($order->date)) ?></td>
 					<td>$<?= $order->total ?></td>
 					<td><?= $order->delivery_address ?></td>
-					<td><?= $order->state ?></td>
+					<td><?= $order->city ?></td>
 					<td><?= $order->mobile_phone ?></td>
-					<td>
-						<?= is_paid($order) ?>
-					</td>
+
 					<td>
 						<i class="fa fa-arrow-down"></i>
 						<div class="js-order-details details hide">
@@ -59,11 +56,11 @@
 
 									<tr>
 										<th>Country</th>
-										<td><?= $order->country ?></td>
+										<td><?= $order->state ?></td>
 									</tr>
 									<tr>
 										<th>State</th>
-										<td><?= $order->state ?></td>
+										<td><?= $order->city ?></td>
 									</tr>
 									<tr>
 										<th>Delivery Address</th>
