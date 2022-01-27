@@ -20,12 +20,16 @@
 						<?php endforeach; ?>
 					<?php endif; ?>
 
-					<?php //show($segment_data)
-					?>
+					
 				</div>
+				
+
 			</div>
+			<div> <img src="<?= ASSETS . THEME ?>images/home/adve.png?v=<?php echo time(); ?>"  style="width:800px; display: block;margin-left: auto;margin-right: auto;" /></div> <br> <br>
 		</div>
+
 	</div>
+
 <div> <img src="<?= ASSETS . THEME ?>images/home/adv.jpg?v=<?php echo time(); ?>" width="100%" /></div> <br> <br>
 
 <section>
@@ -71,7 +75,7 @@
 					<!--/category-tab-->
 				<?php endif; ?>
 
-				<?php Page::show_links() ?>
+
 			</div>
 		</div>
 	</div>
