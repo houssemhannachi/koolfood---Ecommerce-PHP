@@ -130,7 +130,7 @@
 		<!--end searchbox-->
 
 		<div class="shipping text-center">
-			<img src="<?= ASSETS . THEME ?>images/home/add.jpg" alt="" />
+			<a href="<?= ROOT?> shop"><img src="<?= ASSETS . THEME ?>images/home/add.png" alt="" style="width: 100%;" /> </a>
 		</div>
 
 	</div>
