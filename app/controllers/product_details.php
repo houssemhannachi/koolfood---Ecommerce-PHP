@@ -20,6 +20,10 @@ class Product_details extends Controller
 		$data['page_title'] = "Product Details";
 		$data['ROW'] = is_array($ROW) ? $ROW[0] : false;
 
+		//get all categories
+		$category = $this->load_model('category');
+		$data['categories'] = $category->get_all();
+
 		$this->view("product-details", $data);
 	}
 }
