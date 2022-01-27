@@ -56,9 +56,7 @@
 							<li>
 								<a href="<?= Settings::twitter_link() ?>"><i class="fa fa-twitter"></i></a>
 							</li>
-							<li>
-								<a href="<?= Settings::youtube_link() ?>"><i class="fa fa-youtube"></i></a>
-							</li>
+
 						</ul>
 					</div>
 				</div>
