@@ -2,7 +2,7 @@
 
 <section id="main-content">
 	<section class="wrapper">
-		<div style="min-height: 300px;max-width: 1000px;margin: auto;">
+		<div style="min-height: 340px;max-width: 1000px;margin: auto; padding-top: 30px;">
 
 			<style type="text/css">
 				.col-md-6 {
@@ -43,7 +43,7 @@
 						<div class="white-header" style="color:grey">
 							<h5>MY ACCOUNT</h5>
 						</div>
-						<p><img src="<?= ASSETS . THEME ?>admin/img/houssem.jpg" class="img-circle" width="80"></p>
+						<p><img src="<?= ASSETS . THEME ?>admin/img/admin.jpg" class="img-circle" width="80"></p>
 						<p><b><?= $profile_data->name ?></b></p>
 						<div class="row">
 							<div class="col-md-6">
@@ -57,13 +57,13 @@
 									<p id="user_text" class="small mt">TOTAL SPEND</p>
 									<?php foreach ($orders as $order) :
 										$somme = $somme + $order->total; ?>
-										<?php endforeach; ?><p><?= $somme ?> </p><?php endif; ?>
+										<?php endforeach; ?><p><?= $somme ?> $</p><?php endif; ?>
 
 										
 							</div>
 
 						</div>
-						<button onclick="show_hide()"><b>Factures</b></button>
+						<button class="btn btn-success" onclick="show_hide()"><b>Orders</b></button>
 						<hr style="color:#888">
 						<div class="row">
 
