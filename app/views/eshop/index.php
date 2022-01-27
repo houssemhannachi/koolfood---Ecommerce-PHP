@@ -1,6 +1,7 @@
 <?php $this->view("header", $data); ?>
 
 <?php $this->view("slider", $data); ?>
+
 <section>
 	<div class="container">
 		<div class="row">
@@ -20,24 +21,16 @@
 						<?php endforeach; ?>
 					<?php endif; ?>
 
-					
+					<?php //show($segment_data)
+					?>
 				</div>
-				
-
 			</div>
-			<div> <img src="<?= ASSETS . THEME ?>images/home/adve.png?v=<?php echo time(); ?>"  style="width:800px; display: block;margin-left: auto;margin-right: auto;" /></div> <br> <br>
 		</div>
-
-	</div>
-
-<div> <img src="<?= ASSETS . THEME ?>images/home/adv.jpg?v=<?php echo time(); ?>" width="100%" /></div> <br> <br>
-
-<section>
-	<div class="container">
+		<!--features_items-->
+		<div> <img src="<?= ASSETS . THEME ?>images/home/adve.png?v=<?php echo time(); ?>" style="width:800px; display: block;margin-left: auto;margin-right: auto;" /></div> <br> <br>
+		<div> <img src="<?= ASSETS . THEME ?>images/home/adv.jpg?v=<?php echo time(); ?>" width="100%" /></div> <br> <br>
 		<div class="row">
-			<div class="col-sm-9 padding-right">
-				<!--features_items-->
-
+			<div class="col-sm-9 padding-right" style="width: 75%; float:right">
 				<?php if (isset($segment_data) && is_array($segment_data)) : $num = 0 ?>
 
 					<div class="category-tab">
@@ -75,7 +68,7 @@
 					<!--/category-tab-->
 				<?php endif; ?>
 
-
+				<?php Page::show_links() ?>
 			</div>
 		</div>
 	</div>
