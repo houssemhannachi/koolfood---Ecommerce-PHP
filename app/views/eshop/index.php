@@ -26,8 +26,7 @@
 			</div>
 		</div>
 	</div>
-</section>
-<div> <img src="<?= ASSETS . THEME ?>images/home/adv.jpg?v=<?php echo time(); ?>" width="100%" /></div>
+<div> <img src="<?= ASSETS . THEME ?>images/home/adv.jpg?v=<?php echo time(); ?>" width="100%" /></div> <br> <br>
 
 <section>
 	<div class="container">
