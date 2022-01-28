@@ -4,10 +4,6 @@ class Home extends Controller
 {
 	public function index()
 	{
-		//pagination formula
-		$limit = 10;
-		$offset = Page::get_offset($limit);
-
 		$search = false;
 		if (isset($_GET['search'])) {
 			$search = true;
@@ -34,15 +30,15 @@ class Home extends Controller
 		if ($search) {
 			if (isset($_GET['find'])) {
 				$arr['description'] = "%" . $find . "%";
-				$ROWS = $DB->read("select * from products where description like :description  limit $limit offset $offset ", $arr);
+				$ROWS = $DB->read("select * from products where description like :description", $arr);
 			} else {
 				//advanced search
 				//generate a search query
-				$query = Search::make_query($_GET, $limit, $offset);
+				$query = Search::make_query($_GET);
 				$ROWS = $DB->read($query);
 			}
 		} else {
-			$ROWS = $DB->read("select * from products limit $limit offset $offset ");
+			$ROWS = $DB->read("select * from products");
 		}
 
 		if ($ROWS) {

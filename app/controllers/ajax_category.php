@@ -62,7 +62,7 @@ class Ajax_category extends Controller
 			} else if ($data->data_type == 'edit_category') {
 
 				$category->edit($data);
-				$arr['message'] = "Your row was successfully edited";
+				$arr['message'] = "Category edited successfully!";
 				$_SESSION['error'] = "";
 				$arr['message_type'] = "info";
 
@@ -74,7 +74,7 @@ class Ajax_category extends Controller
 				echo json_encode($arr);
 			} else if ($data->data_type == 'delete_row') {
 				$category->delete($data->id);
-				$arr['message'] = "Your row was successfully deleted";
+				$arr['message'] = "Category deleted successfully!";
 				$_SESSION['error'] = "";
 				$arr['message_type'] = "info";
 

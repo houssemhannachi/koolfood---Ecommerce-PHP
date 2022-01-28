@@ -51,21 +51,17 @@
 				<?php endforeach; ?>
 			<?php endif; ?>
 
-			<tr>
-				<td colspan="8"><?php Page::show_links(); ?></td>
-			</tr>
-
 		</tbody>
 	<?php elseif ($mode == "delete_confirmed") : ?>
 
-		<div class="status alert alert-success" style="">The message was deleted successfully</div>
+		<div class="status alert alert-success">The message was deleted successfully</div>
 		<a href="<?= ROOT ?>admin/messages">
 			<input type="button" class="btn btn-success pull-right" value="Back to messages" />
 		</a>
 
 	<?php elseif ($mode == "delete" && is_object($messages)) : ?>
 
-		<div class="status alert alert-danger" style="">Are you sure you want to Delete this message??</div>
+		<div class="status alert alert-danger">Are you sure you want to Delete this message??</div>
 
 		<thead>
 			<tr>

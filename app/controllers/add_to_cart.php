@@ -11,7 +11,7 @@ class Add_to_cart extends Controller
 		$id = esc($id);
 		$DB = Database::newInstance();
 
-		$ROWS = $DB->read("select * from products where id = :id limit 1", ["id" => $id]);
+		$ROWS = $DB->read("select * from products where id = :id", ["id" => $id]);
 
 		if ($ROWS) {
 			$ROW = $ROWS[0];

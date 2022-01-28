@@ -131,7 +131,7 @@
 
 		<div class="shipping text-center">
 			<a href="<?= ROOT?> shop"><img src="<?= ASSETS . THEME ?>images/home/add.png" alt="" style="width: 100%;" /> </a>
-		</div>
+		</div></br>
 
 	</div>
 </div>

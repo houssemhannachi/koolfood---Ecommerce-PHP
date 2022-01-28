@@ -25,8 +25,6 @@
 						<?php endforeach; ?>
 					<?php endif; ?>
 
-					<?php Page::show_links() ?>
-
 				</div>
 				<!--features_items-->
 			</div>

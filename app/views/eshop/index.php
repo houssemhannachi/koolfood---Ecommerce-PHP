@@ -67,8 +67,6 @@
 					</div>
 					<!--/category-tab-->
 				<?php endif; ?>
-
-				<?php Page::show_links() ?>
 			</div>
 		</div>
 	</div>
