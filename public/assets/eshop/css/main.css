@@ -1665,8 +1665,8 @@ h2.title {
 }
 
 .cart_quantity_button a {
-  background:#F0F0E9;
-  color: #696763;
+  background:#dbdbdb;
+  color: #000000;
   display: inline-block;
   font-size: 16px;
   height: 28px;
@@ -1678,11 +1678,12 @@ h2.title {
 
 
 .cart_quantity_input {
-  color: #696763;
+  color: #000000;
   float: left;
   font-size: 16px;
   text-align: center;
   font-family: 'Roboto',sans-serif;
+  border-radius:3px;
   
 }
 
@@ -1695,7 +1696,7 @@ h2.title {
 
 
 .cart_delete a {
-  background:#F0F0E9;
+  background:#c2c2bd;
   color: #FFFFFF;
   padding: 5px 7px;
   font-size: 16px
