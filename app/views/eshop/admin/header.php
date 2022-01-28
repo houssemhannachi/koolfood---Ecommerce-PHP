@@ -8,7 +8,7 @@
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title><?= $page_title . ' - ' . WEBSITE_TITLE ?></title>
+    <title><?= $page_title . ' - ' ?> KoolFood</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<?= ASSETS . THEME ?>admin/css/bootstrap.css?v=<?php echo time(); ?>" rel="stylesheet">
