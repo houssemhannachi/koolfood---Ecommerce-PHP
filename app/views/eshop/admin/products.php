@@ -540,6 +540,7 @@
 					}
 				} else if (obj.data_type == "edit_product") {
 					if (obj.message_type == "info") {
+						alert(obj.message);
 						show_edit_product(0, '', false);
 
 						var table_body = document.querySelector("#table_body");
@@ -547,11 +548,6 @@
 					} else {
 						alert(obj.message);
 					}
-
-				} else if (obj.data_type == "disable_row") {
-
-					var table_body = document.querySelector("#table_body");
-					table_body.innerHTML = obj.data;
 
 				} else if (obj.data_type == "delete_row") {
 

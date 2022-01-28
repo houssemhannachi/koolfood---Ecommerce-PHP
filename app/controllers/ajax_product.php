@@ -22,36 +22,38 @@ class Ajax_product extends Controller
 				//add new product
 				$check = $product->create($data, $_FILES, $image_class);
 
-				if ($_SESSION['error'] != "") {
-					$arr['message'] = $_SESSION['error'];
-					$_SESSION['error'] = "";
-					$arr['message_type'] = "error";
-					$arr['data'] = "";
-					$arr['data_type'] = "add_new";
+				// if ($_SESSION['error'] != "") {
+				// 	$arr['message'] = $_SESSION['error'];
+				// 	$_SESSION['error'] = "";
+				// 	$arr['message_type'] = "error";
+				// 	$arr['data'] = "";
+				// 	$arr['data_type'] = "add_new";
 
-					echo json_encode($arr);
-				} else {
-					$arr['message'] = "Product added successfully!";
-					$arr['message_type'] = "info";
-					$prods = $product->get_all();
-					$arr['data'] = $product->make_table($prods, $category);
-					$arr['data_type'] = "add_new";
+				// 	echo json_encode($arr);
+				// } else {
+				// 	$arr['message'] = "Product added successfully!";
+				// 	$arr['message_type'] = "info";
+				// 	$prods = $product->get_all();
+				// 	$arr['data'] = $product->make_table($prods, $category);
+				// 	$arr['data_type'] = "add_new";
 
-					echo json_encode($arr);
-				}
+				// 	echo json_encode($arr);
+				// }
+
+				$arr['message'] = "Product added successfully!";
+				$arr['message_type'] = "info";
+				$prods = $product->get_all();
+				$arr['data'] = $product->make_table($prods, $category);
+				$arr['data_type'] = "add_new";
+
+				echo json_encode($arr);
 			} else if ($data->data_type == 'edit_product') {
 				$product->edit($data, $_FILES, $image_class);
-				if ($_SESSION['error'] != "") {
-					$arr['message'] = $_SESSION['error'];
-					$_SESSION['error'] = "";
-					$arr['message_type'] = "error";
-					$arr['data'] = "";
-				} else {
-					$arr['message'] = "Product edited successfully!";
-					$arr['message_type'] = "info";
-					$prods = $product->get_all();
-					$arr['data'] = $product->make_table($prods, $category);
-				}
+				
+				$arr['message'] = "Product edited successfully!";
+				$arr['message_type'] = "info";
+				$prods = $product->get_all();
+				$arr['data'] = $product->make_table($prods, $category);
 
 				$arr['data_type'] = "edit_product";
 				echo json_encode($arr);
