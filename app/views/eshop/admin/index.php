@@ -7,28 +7,28 @@
 <div class="row mtbox">
 	<div class="col-md-2 col-sm-2 box0">
 		<div class="box1">
-			<span class="fa fa-copy"></span>
+			<span class="bx bxs-category"></span>
 			<h3><?= get_categories_count() ?></h3>
 		</div>
 		<p><?= get_categories_count() ?> total categories.</p>
 	</div>
 	<div class="col-md-2 col-sm-2 box0">
 		<div class="box1">
-			<span class="fa fa-paste"></span>
+			<span class="bx bx-user"></span>
 			<h3><?= get_customer_count() ?></h3>
 		</div>
 		<p>You have <?= get_customer_count() ?> customers.</p>
 	</div>
 	<div class="col-md-2 col-sm-2 box0">
 		<div class="box1">
-			<span class="li_news"></span>
+			<span class="fa fa-paste"></span>
 			<h3><?= get_order_count() ?></h3>
 		</div>
 		<p>More than <?= get_order_count() ?> orders were received.</p>
 	</div>
 	<div class="col-md-2 col-sm-2 box0">
 		<div class="box1">
-			<span class="li_data"></span>
+			<span class="bx bx-ghost"></span>
 			<h3><?= get_admin_count() ?></h3>
 		</div>
 		<p>Your have <?= get_admin_count() ?> admins.</p>
