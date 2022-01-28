@@ -374,6 +374,12 @@
 		if (quantity_input.value.trim() == "" || isNaN(quantity_input.value.trim())) {
 			alert("Please enter a valid quantity");
 			return;
+		} else {
+			const qty = Number(quantity_input.value.trim());
+			if(!Number.isInteger(qty) || qty < 1) {
+				alert("Please enter a valid quantity");
+				return;
+			}
 		}
 
 		var category_input = document.querySelector("#category");
@@ -386,6 +392,12 @@
 		if (price_input.value.trim() == "" || isNaN(price_input.value.trim())) {
 			alert("Please enter a valid price");
 			return;
+		} else {
+			const price = Number(price_input.value.trim());
+			if(!Number.is_float(price) || price < 1) {
+				alert("Please enter a valid price");
+				return;
+			}
 		}
 
 		var image_input = document.querySelector("#image");
