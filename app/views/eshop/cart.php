@@ -9,20 +9,21 @@
 			</ol>
 		</div>
 		<div class="table-responsive cart_info" style="margin-top: -50px;">
+		<?php if ($ROWS) : ?>
 			<table class="table table-condensed">
 				<thead>
 					<tr class="cart_menu">
-						<td class="image">Item</td>
-						<td class="description"></td>
-						<td class="price">Price</td>
-						<td class="quantity">Quantity</td>
-						<td class="total">Total</td>
-						<td></td>
+						<th class="image">Item</th>
+						<th class="description"></th>
+						<th class="price">Price</th>
+						<th class="quantity">Quantity</th>
+						<th class="total">Total</th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
 
-					<?php if ($ROWS) : ?>
+					
 						<?php foreach ($ROWS as $row) : ?>
 							<tr>
 								<td class="cart_product">
@@ -30,7 +31,6 @@
 								</td>
 								<td class="cart_description">
 									<h4><a href=""><?= $row->description ?></a></h4>
-									<p>prod ID: <?= $row->id ?></p>
 								</td>
 								<td class="cart_price">
 									<p><?= $row->price ?> Dinars </p>
@@ -52,11 +52,12 @@
 
 						<?php endforeach; ?>
 					<?php else : ?>
+						
 
 						<div style="font-size: 18px;text-align: center;padding: 6px;">No items were found in the cart</div>
 					<?php endif; ?>
-				</tbody>
-			</table>
+					</tbody>
+						</table>
 			<div class="pull-right" style="font-size: 25px;">Total: <?= number_format($sub_total, 2) ?> Dinars</div>
 		</div>
 		<a href="<?= ROOT ?>checkout">
