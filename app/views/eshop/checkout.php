@@ -22,6 +22,19 @@ if (isset($errors) && count($errors) > 0) {
 				<li class="active">Check out</li>
 			</ol>
 		</div>
+		<div class="pizzaro-order-steps">
+			<ul>
+				<li>
+					<span class="step">1</span> Shopping Cart 
+				</li>
+				<li class="cart">
+					<span class="step">2</span> Checkout
+				</li>
+				<li>
+					<span class="step" >3</span> Order Complete
+				</li>
+			</ul>
+		</div>
 		<!--/breadcrums-->
 
 		<?php if (is_array($ROWS)) : ?>
