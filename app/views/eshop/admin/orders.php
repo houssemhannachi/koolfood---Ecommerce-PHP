@@ -100,8 +100,8 @@
 											<tr>
 												<td><?= $detail->qty ?></td>
 												<td><?= $detail->description ?></td>
-												<td><?= $detail->amount ?></td>
-												<td><?= $detail->total ?></td>
+												<td><?= $detail->amount ?> Dinars </td>
+												<td><?= $detail->total ?> Dinars</td>
 											</tr>
 
 										<?php endforeach; ?>
@@ -111,7 +111,7 @@
 									<div>No order details were found for this order</div>
 								<?php endif; ?>
 							</table>
-							<h3 class="pull-right">Grand Total: <?= $order->grand_total ?></h3>
+							<h3 class="pull-right">Total: <?= $order->grand_total ?>  Dinars</h3>
 						</div>
 					</td>
 				</tr>
