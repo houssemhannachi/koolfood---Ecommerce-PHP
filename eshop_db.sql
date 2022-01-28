@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 28 jan. 2022 à 15:54
+-- Généré le : ven. 28 jan. 2022 à 22:33
 -- Version du serveur : 10.4.21-MariaDB
 -- Version de PHP : 8.0.10
 
@@ -278,7 +278,9 @@ INSERT INTO `orders` (`id`, `user_url`, `description`, `delivery_address`, `tota
 (36, 'IYHtfbbTBkpFExy', 'order 36', 'Sfax Mey', 10.2, 'Jendouba', ' Aïn Draham', '6010', 0, 0, '2021-12-28 14:02:44', 'cduqh3q8i28ed65guid030vimr', '', '55555555555'),
 (37, 'IYHtfbbTBkpFExy', 'order 37', 'XXXX XXXX', 35.97, 'Gabès', 'Mareth	', 'XXXX', 0, 0, '2021-12-28 14:21:08', 'cduqh3q8i28ed65guid030vimr', 'XXXX', 'xXXXxxxx'),
 (38, 'IYHtfbbTBkpFExy', 'order 38', 'Rue El Afrahh XXXXXXXXX', 0.63, 'Zaghouan', 'Zaghouan', 'mmmm', 0, 0, '2021-12-28 14:38:17', 'cduqh3q8i28ed65guid030vimr', '43434', '52215947'),
-(39, 'IYHtfbbTBkpFExy', 'order 39', 'Route Al AÃ¯n km3 ', 6, 'Tunis', 'Carthage', '3051', 0, 0, '2022-01-28 09:36:37', '629ihmjvh647gpcv9ukq3aqjih', '', '58229344');
+(39, 'IYHtfbbTBkpFExy', 'order 39', 'Route Al AÃ¯n km3 ', 6, 'Tunis', 'Carthage', '3051', 0, 0, '2022-01-28 09:36:37', '629ihmjvh647gpcv9ukq3aqjih', '', '58229344'),
+(40, 'IYHtfbbTBkpFExy', 'order 40', 'Sfax Mey', 22, 'Gafsa', ' Redeyef ', '6010', 0, 0, '2022-01-28 16:28:10', 'cduqh3q8i28ed65guid030vimr', '43434', '55555555555'),
+(41, 'IYHtfbbTBkpFExy', 'order 41', 'Rue El Afrah Mey', 3, 'Manouba', 'Oued Ellil', '6010', 0, 0, '2022-01-28 16:31:56', 'cduqh3q8i28ed65guid030vimr', '43434', '52215947');
 
 -- --------------------------------------------------------
 
@@ -344,7 +346,12 @@ INSERT INTO `order_details` (`id`, `orderid`, `qty`, `description`, `amount`, `t
 (41, 37, 2, 'Milo Candy Bar', 12.99, 25.98, 9),
 (42, 38, 3, 'Traditions', 0.21, 0.63, 14),
 (43, 39, 3, 'Boga', 1, 3, 23),
-(44, 39, 3, 'Pizza Margeritta', 1, 3, 26);
+(44, 39, 3, 'Pizza Margeritta', 1, 3, 26),
+(45, 40, 1, 'Coca Cola', 1, 1, 24),
+(46, 40, 2, 'Marka', 5.5, 11, 33),
+(47, 40, 1, 'Mouloukhiya', 10, 10, 35),
+(48, 41, 2, 'Boga', 1, 2, 23),
+(49, 41, 1, 'Coca Cola', 1, 1, 24);
 
 -- --------------------------------------------------------
 
@@ -382,8 +389,8 @@ INSERT INTO `products` (`id`, `user_url`, `description`, `category`, `price`, `q
 (30, 'IYHtfbbTBkpFExy', 'Makloub', 6, 1, 1, 'uploads/fcI4bk53oaDCYMoWqPtQJaDdD8OP0kQcP3zj9M5bk9DJbo9dZpDkSqjmFuFW.jpg', '', '', '', '2021-12-29 22:30:50', 'makloub'),
 (31, 'IYHtfbbTBkpFExy', 'Sandwich Thon', 6, 1, 1, 'uploads/AOR0vghvJREgdcjgxNKry2BdtUEDH8ueKnOfN4fetTz8AnuLHgRlqxyuOLFr.jpg', '', '', '', '2021-12-29 22:31:22', 'sandwich-thon'),
 (32, 'IYHtfbbTBkpFExy', 'Couscous', 7, 1, 1, 'uploads/CorbRbRinceRi10lbZIfEBDSGz1WWY5vUuiulCqD83axc9ugSXHoIE2llTSc.jpg', '', '', '', '2021-12-29 22:32:08', 'couscous'),
-(33, 'IYHtfbbTBkpFExy', 'Marka', 7, 1, 1, 'uploads/OLF4Vna4eXXi3dXW4m7KR4p15vl3S5tcLrLuf7QMeCvsIlEsa9lwDNG9aNOS.jpg', '', '', '', '2021-12-29 22:32:23', 'marka'),
-(34, 'IYHtfbbTBkpFExy', 'Lablebi', 7, 1, 1, 'uploads/PJrfg3mZSObtD0GVNq3JDuQwydYyaC6ZZtnoyAEMJSPk2oH2f2ozZlSmTN6m.jpg', '', '', '', '2021-12-29 22:32:36', 'lablebi'),
+(33, 'IYHtfbbTBkpFExy', 'Marka', 7, 5.5, 1, 'uploads/OLF4Vna4eXXi3dXW4m7KR4p15vl3S5tcLrLuf7QMeCvsIlEsa9lwDNG9aNOS.jpg', '', '', '', '2021-12-29 22:32:23', 'marka'),
+(34, 'IYHtfbbTBkpFExy', 'Lablebi', 7, 4, 1, 'uploads/PJrfg3mZSObtD0GVNq3JDuQwydYyaC6ZZtnoyAEMJSPk2oH2f2ozZlSmTN6m.jpg', '', '', '', '2021-12-29 22:32:36', 'lablebi'),
 (35, 'IYHtfbbTBkpFExy', 'Mouloukhiya', 7, 10, 1, 'uploads/hEgzu5MUH0CqVQn9RVcUtUvkc6WuvIkORAgMey1MvqwFJGoDeKiXJzyZL5ul.jpg', '', '', '', '2021-12-29 22:33:38', 'mouloukhia');
 
 -- --------------------------------------------------------
@@ -613,13 +620,13 @@ ALTER TABLE `contact_us`
 -- AUTO_INCREMENT pour la table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT pour la table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT pour la table `products`
