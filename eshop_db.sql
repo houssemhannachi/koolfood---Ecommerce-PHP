@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 27 jan. 2022 à 11:39
+-- Généré le : ven. 28 jan. 2022 à 14:46
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -255,14 +255,7 @@ CREATE TABLE IF NOT EXISTS `contact_us` (
   KEY `email` (`email`),
   KEY `subject` (`subject`),
   KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `contact_us`
---
-
-INSERT INTO `contact_us` (`id`, `name`, `email`, `subject`, `message`, `date`) VALUES
-(2, 'A Second Person', 'email2@email.com', 'a subject', 'a subject2', '2021-05-22 12:25:18');
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -291,33 +284,13 @@ CREATE TABLE IF NOT EXISTS `orders` (
   KEY `date` (`date`),
   KEY `sessionid` (`sessionid`),
   KEY `description` (`description`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `orders`
 --
 
 INSERT INTO `orders` (`id`, `user_url`, `description`, `delivery_address`, `total`, `state`, `city`, `zip`, `tax`, `shipping`, `date`, `sessionid`, `home_phone`, `mobile_phone`) VALUES
-(1, 'IYHtfbbTBkpFExy', '', 'my address in town home town', 110.92, 'Zambia', 'Nothern', '10101', 0, 0, '2021-04-21 20:38:25', 'egfghjpd9s0tri59fs8q7rlt7l', '0956789099', '2606753435'),
-(2, 'IYHtfbbTBkpFExy', '', 'my address in town home town', 110.92, 'Zambia', 'Nothern', '10101', 0, 0, '2021-04-21 20:38:46', 'egfghjpd9s0tri59fs8q7rlt7l', '0956789099', '2606753435'),
-(3, 'IYHtfbbTBkpFExy', '', 'plot number1 plot number 2', 72.96, 'Zambia', 'Nothern', '10101', 0, 0, '2021-04-30 12:31:47', 'o9sln93qsk4u3rkl5qvhsulcdq', '075725722', '097563635'),
-(4, 'IYHtfbbTBkpFExy', '', 'plot 1234 new road lusaka ', 71.95, 'Zambia', 'Southern', '10101', 0, 0, '2021-05-04 21:03:14', 'o9sln93qsk4u3rkl5qvhsulcdq', '', '0986543467'),
-(5, 'IYHtfbbTBkpFExy', '', 'Lusaka Lusaka', 9.99, 'Zambia', 'Nothern', '10101', 0, 0, '2021-07-06 12:58:30', '4geg1pa308bcadbuqfhlvcvdjt', '244324', '2423424234'),
-(6, 'IYHtfbbTBkpFExy', '', 'plot 1234 new road lusaka Lusaka', 9.99, 'Zambia', 'Nothern', '1001', 0, 0, '2021-07-06 13:02:00', '4geg1pa308bcadbuqfhlvcvdjt', '4254545', '35324545'),
-(8, 'IYHtfbbTBkpFExy', '', 'aeefdfdfda dsadcvd', 9.99, 'South Africa', 'Burg', 'sfvdfv', 0, 0, '2021-07-09 13:32:51', '73d0bvfoijv78lfe8iau8q438i', 'dvdvcd', 'sdfvdvdv'),
-(9, 'IYHtfbbTBkpFExy', 'order 8', 'Zambia Lusaka', 20.99, 'South Africa', 'Burg', '1223', 0, 0, '2021-07-09 13:51:21', '73d0bvfoijv78lfe8iau8q438i', 'burg', '0989787854'),
-(10, 'IYHtfbbTBkpFExy', 'order 10', 'wfgsfvgf sfvfv', 20.99, 'South Africa', 'Burg', 'sdfvvs', 0, 0, '2021-07-09 13:54:11', '73d0bvfoijv78lfe8iau8q438i', 'dfdfdf', 'dfdfd'),
-(11, 'IYHtfbbTBkpFExy', 'order 11', 'aefdf wdfd', 12.99, 'South Africa', 'Sun City', 'dvfd', 0, 0, '2021-07-09 14:00:03', '73d0bvfoijv78lfe8iau8q438i', 'sdacv', 'dcfd'),
-(12, 'IYHtfbbTBkpFExy', 'order 12', 'aefdf wdfd', 12.99, 'South Africa', 'Sun City', 'dvfd', 0, 0, '2021-07-09 14:02:57', '73d0bvfoijv78lfe8iau8q438i', 'sdacv', 'dcfd'),
-(13, 'IYHtfbbTBkpFExy', 'order 13', 'aefdf wdfd', 25.98, 'South Africa', 'Sun City', 'dvfd', 0, 0, '2021-07-09 20:40:10', '73d0bvfoijv78lfe8iau8q438i', 'sdacv', 'dcfd'),
-(14, 'IYHtfbbTBkpFExy', '', 'my address in town home town', 110.92, 'Zambia', 'Nothern', '10101', 0, 0, '2021-04-21 20:38:25', 'egfghjpd9s0tri59fs8q7rlt7l', '0956789099', '2606753435'),
-(15, 'IYHtfbbTBkpFExy', '', 'my address in town home town', 110.92, 'Zambia', 'Nothern', '10101', 0, 0, '2021-04-21 20:38:46', 'egfghjpd9s0tri59fs8q7rlt7l', '0956789099', '2606753435'),
-(16, 'IYHtfbbTBkpFExy', '', 'plot number1 plot number 2', 72.96, 'Zambia', 'Nothern', '10101', 0, 0, '2021-04-30 12:31:47', 'o9sln93qsk4u3rkl5qvhsulcdq', '075725722', '097563635'),
-(17, 'IYHtfbbTBkpFExy', '', 'plot 1234 new road lusaka ', 71.95, 'Zambia', 'Southern', '10101', 0, 0, '2021-05-04 21:03:14', 'o9sln93qsk4u3rkl5qvhsulcdq', '', '0986543467'),
-(18, 'IYHtfbbTBkpFExy', 'order 5', 'Lusaka plot number 2', 22.98, 'South Africa', 'Sun City', '1001', 0, 0, '2021-07-09 19:25:22', 'ujaa4qq9p5logrg7kgigbrdvun', 'burg', '0989787854'),
-(19, 'IYHtfbbTBkpFExy', 'order 6', 'Lusaka plot number 2', 1.05, 'South Africa', 'Sun City', '1223', 0, 0, '2021-07-13 10:16:39', 'ujaa4qq9p5logrg7kgigbrdvun', 'Lusaka', '0986543467'),
-(20, 'IYHtfbbTBkpFExy', 'order 7', 'plot number1 plot number 2', 0.42, 'Zambia', 'Southern', '1001', 0, 0, '2021-07-13 10:19:18', 'ujaa4qq9p5logrg7kgigbrdvun', 'plot', '0986543467'),
-(21, 'IYHtfbbTBkpFExy', 'order 21', 'adfadf adfadfd', 0.63, 'South Africa', 'Burg', 'afadf', 0, 0, '2021-07-18 21:15:55', 'qqtd8h2cql5c3d8u59co74cn98', 'afad', 'acvdav'),
 (31, 'IYHtfbbTBkpFExy', 'order 22', 'Sfax Mey', 12.99, 'Tunis', 'La Marsa', '6010', 0, 0, '2021-12-27 13:54:30', 'cduqh3q8i28ed65guid030vimr', '43434', '52215947'),
 (32, 'IYHtfbbTBkpFExy', 'order 32', 'Sfax Mey', 0.21, 'Tunis', 'La Marsa', 'xxx', 0, 0, '2021-12-27 13:56:16', 'cduqh3q8i28ed65guid030vimr', '43434', '52215947'),
 (33, 'IYHtfbbTBkpFExy', 'order 33', 'Sfax 0', 20.99, 'Tunis', 'Le Kram', '6010', 0, 0, '2021-12-27 13:57:40', 'cduqh3q8i28ed65guid030vimr', 'XX2323', '52215947'),
@@ -325,7 +298,8 @@ INSERT INTO `orders` (`id`, `user_url`, `description`, `delivery_address`, `tota
 (35, 'IYHtfbbTBkpFExy', 'order 35', 'Hay Hbib Sokra', 25.98, 'Sfax', 'Sakiet Ezzit', '5000', 0, 0, '2021-12-28 14:01:55', 'cduqh3q8i28ed65guid030vimr', '', '52215947'),
 (36, 'IYHtfbbTBkpFExy', 'order 36', 'Sfax Mey', 10.2, 'Jendouba', ' Aïn Draham', '6010', 0, 0, '2021-12-28 14:02:44', 'cduqh3q8i28ed65guid030vimr', '', '55555555555'),
 (37, 'IYHtfbbTBkpFExy', 'order 37', 'XXXX XXXX', 35.97, 'Gabès', 'Mareth	', 'XXXX', 0, 0, '2021-12-28 14:21:08', 'cduqh3q8i28ed65guid030vimr', 'XXXX', 'xXXXxxxx'),
-(38, 'IYHtfbbTBkpFExy', 'order 38', 'Rue El Afrahh XXXXXXXXX', 0.63, 'Zaghouan', 'Zaghouan', 'mmmm', 0, 0, '2021-12-28 14:38:17', 'cduqh3q8i28ed65guid030vimr', '43434', '52215947');
+(38, 'IYHtfbbTBkpFExy', 'order 38', 'Rue El Afrahh XXXXXXXXX', 0.63, 'Zaghouan', 'Zaghouan', 'mmmm', 0, 0, '2021-12-28 14:38:17', 'cduqh3q8i28ed65guid030vimr', '43434', '52215947'),
+(39, 'IYHtfbbTBkpFExy', 'order 39', 'Route Al AÃ¯n km3 ', 6, 'Tunis', 'Carthage', '3051', 0, 0, '2022-01-28 09:36:37', '629ihmjvh647gpcv9ukq3aqjih', '', '58229344');
 
 -- --------------------------------------------------------
 
@@ -345,7 +319,7 @@ CREATE TABLE IF NOT EXISTS `order_details` (
   PRIMARY KEY (`id`),
   KEY `orderid` (`orderid`),
   KEY `description` (`description`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `order_details`
@@ -393,7 +367,9 @@ INSERT INTO `order_details` (`id`, `orderid`, `qty`, `description`, `amount`, `t
 (39, 36, 1, 'Meat Burger', 0.21, 0.21, 11),
 (40, 37, 1, 'Burger 250g With Drink', 9.99, 9.99, 7),
 (41, 37, 2, 'Milo Candy Bar', 12.99, 25.98, 9),
-(42, 38, 3, 'Traditions', 0.21, 0.63, 14);
+(42, 38, 3, 'Traditions', 0.21, 0.63, 14),
+(43, 39, 3, 'Boga', 1, 3, 23),
+(44, 39, 3, 'Pizza Margeritta', 1, 3, 26);
 
 -- --------------------------------------------------------
 
@@ -423,7 +399,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   KEY `category` (`category`),
   KEY `description` (`description`),
   KEY `user_url` (`user_url`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `products`
@@ -431,7 +407,7 @@ CREATE TABLE IF NOT EXISTS `products` (
 
 INSERT INTO `products` (`id`, `user_url`, `description`, `category`, `price`, `quantity`, `image`, `image2`, `image3`, `image4`, `date`, `slag`) VALUES
 (23, 'IYHtfbbTBkpFExy', 'Boga', 2, 1, 1, 'uploads/u8SHJocUjKHNuzk1cdkIeAreIDNwNAsJ3Lyf7bIRUGGlbYodZ8a72FcOConl.jpg', 'uploads/L1YR0Rs0tg4W4YL8w6NI8GNmnSxUeMAPbUm3GYnTUVLaNWRLSJcOgoHgdMv1.jpg', '', '', '2021-12-29 22:26:36', 'boga'),
-(24, 'IYHtfbbTBkpFExy', 'Coca Cola', 2, 1, 1, 'uploads/M06Sb3qjBExT84lRlhY7sJroFAVst0GxLsy7rSUK54eS4loyNmOFtaZBHA0W.jpg', '', '', '', '2021-12-29 22:27:09', 'coca-cola'),
+(24, 'IYHtfbbTBkpFExy', 'Coca Cola', 2, 1, 1, 'uploads/K2ag5Yj5sr9kDb7Zs88srx4ErKN4AKjnUFNWwpGn4osqPLrrHQEKzvdUfWSc.jpg', '', '', '', '2021-12-29 22:27:09', 'coca-cola'),
 (25, 'IYHtfbbTBkpFExy', 'Fanta', 2, 1, 1, 'uploads/w4o7csQxhfsUTkrUbQGFujNfF4wvtS5opD9A4MKWhVVbPNZmQDtJyAtAbjBq.jpg', '', '', '', '2021-12-29 22:27:22', 'fanta'),
 (26, 'IYHtfbbTBkpFExy', 'Pizza Margeritta', 5, 1, 1, 'uploads/8iTYsweFRQoAhnSQwCD88ExlbdfZtTLYmd0g9XJxpWSdYYJzdj5IhKkfsDwD.jpg', '', '', '', '2021-12-29 22:27:44', 'pizza-margeritta'),
 (27, 'IYHtfbbTBkpFExy', 'Pizza Fruits De Mer', 5, 1, 1, 'uploads/G2wrdFK3Jr9BQwnBLxbOwrBsNiX8CaAKKMsvPG1dQ4o1pTIlpQrEHAZ6j2SE.jpg', '', '', '', '2021-12-29 22:28:05', 'pizza-fruits-de-mer'),
@@ -442,7 +418,7 @@ INSERT INTO `products` (`id`, `user_url`, `description`, `category`, `price`, `q
 (32, 'IYHtfbbTBkpFExy', 'Couscous', 7, 1, 1, 'uploads/CorbRbRinceRi10lbZIfEBDSGz1WWY5vUuiulCqD83axc9ugSXHoIE2llTSc.jpg', '', '', '', '2021-12-29 22:32:08', 'couscous'),
 (33, 'IYHtfbbTBkpFExy', 'Marka', 7, 1, 1, 'uploads/OLF4Vna4eXXi3dXW4m7KR4p15vl3S5tcLrLuf7QMeCvsIlEsa9lwDNG9aNOS.jpg', '', '', '', '2021-12-29 22:32:23', 'marka'),
 (34, 'IYHtfbbTBkpFExy', 'Lablebi', 7, 1, 1, 'uploads/PJrfg3mZSObtD0GVNq3JDuQwydYyaC6ZZtnoyAEMJSPk2oH2f2ozZlSmTN6m.jpg', '', '', '', '2021-12-29 22:32:36', 'lablebi'),
-(35, 'IYHtfbbTBkpFExy', 'Mouloukhiya', 7, 1, 1, 'uploads/hEgzu5MUH0CqVQn9RVcUtUvkc6WuvIkORAgMey1MvqwFJGoDeKiXJzyZL5ul.jpg', '', '', '', '2021-12-29 22:33:38', 'mouloukhia');
+(35, 'IYHtfbbTBkpFExy', 'Mouloukhiya', 7, 10, 1, 'uploads/hEgzu5MUH0CqVQn9RVcUtUvkc6WuvIkORAgMey1MvqwFJGoDeKiXJzyZL5ul.jpg', '', '', '', '2021-12-29 22:33:38', 'mouloukhia');
 
 -- --------------------------------------------------------
 
@@ -490,14 +466,7 @@ CREATE TABLE IF NOT EXISTS `slider_images` (
   `disabled` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `disabled` (`disabled`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `slider_images`
---
-
-INSERT INTO `slider_images` (`id`, `header1_text`, `header2_text`, `text`, `link`, `image`, `image2`, `disabled`) VALUES
-(3, 'Awesome', 'This Is Great Food', 'The food on this picture is awesome. try it and let us know', 'http://localhost/koolfood/public/product_details/pizza-margeritta', 'uploads/8iTYsweFRQoAhnSQwCD88ExlbdfZtTLYmd0g9XJxpWSdYYJzdj5IhKkfsDwD.jpg', '', 0);
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -565,14 +534,13 @@ CREATE TABLE IF NOT EXISTS `users` (
   KEY `name` (`name`),
   KEY `rank` (`rank`),
   KEY `date` (`date`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `users`
 --
 
 INSERT INTO `users` (`id`, `url_address`, `name`, `email`, `password`, `date`, `rank`) VALUES
-(3, 'BX8z7P6oUmwRDwR3yGlJdJH', 'Mary', 'mary@yahoo.com', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', '2021-02-02 14:57:34', 'customer'),
 (4, 'IYHtfbbTBkpFExy', 'XXXXX', 'X@XX.COM', 'd712a38ada1b58a0a561d8bb249d9f0668b25047', '2021-12-24 21:46:02', 'admin');
 COMMIT;
 
