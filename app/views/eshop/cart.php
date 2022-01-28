@@ -8,6 +8,20 @@
 				<li class="active">Shopping Cart</li>
 			</ol>
 		</div>
+
+		<div class="pizzaro-order-steps">
+			<ul>
+				<li class="cart">
+					<span class="step">1</span> Shopping Cart 
+				</li>
+				<li class="checkout">
+					<span class="step">2</span> Checkout
+				</li>
+				<li class="complete">
+					<span class="step" >3</span> Order Complete
+				</li>
+			</ul>
+		</div>
 		<div class="table-responsive cart_info" style="margin-top: -50px;">
 		<?php if ($ROWS) : ?>
 			<table class="table table-condensed">
