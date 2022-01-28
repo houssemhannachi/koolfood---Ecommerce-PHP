@@ -46,7 +46,7 @@
 									<p class="cart_total_price"><?= $row->price * $row->cart_qty ?> Dinars</p>
 								</td>
 								<td class="cart_delete">
-									<a class="cart_quantity_delete" delete_id="<?= $row->id ?>" onclick="delete_item(this.getAttribute('delete_id'))" href="<?= ROOT ?>add_to_cart/remove/<?= $row->id ?>"><i class="fa fa-times"></i></a>
+									<a class="cart_quantity_delete" delete_id="<?= $row->id ?>" onclick="delete_item(this.getAttribute('delete_id'))" href="<?= ROOT ?>add_to_cart/remove/<?= $row->id ?>"><i class="fas fa-times"></i></a>
 								</td>
 							</tr>
 
