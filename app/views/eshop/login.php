@@ -14,15 +14,11 @@
 					<form method="post">
 						<input type="email" name="email" value="<?= isset($_POST['email']) ? $_POST['email'] : ''; ?>" placeholder="Email Address" />
 						<input type="password" name="password" value="<?= isset($_POST['password']) ? $_POST['password'] : ''; ?>" placeholder="Password" />
-						<span>
-							<input type="checkbox" class="checkbox">
-							Keep me signed in
 
-						</span>
-						<button type="submit" class="btn btn-default">Login</button>
+						<button type="submit" class="btn btn-default" style="margin-left: auto;margin-right: auto;">Login</button>
 					</form>
 					<br>
-					<a href="<?= ROOT ?>signup">Dont have an account? Signup here</a>
+					<a href="<?= ROOT ?>signup">Don't have an account yet? Sign Up</a>
 				</div>
 				<!--/login form-->
 			</div>
