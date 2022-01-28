@@ -2,13 +2,15 @@
       MAIN SIDEBAR MENU
       *********************************************************************************************************************************************************** -->
 <!--sidebar start-->
+<?php include "header.php"?>
+
 <aside>
     <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
             <li class="sub-menu">
-                <a href="javascript:;">
-                    <i class="fa fa-dashboard"></i>
+                <a href="<?= ROOT ?>admin">
+                    <i class="bx bxs-dashboard"></i>
                     <span>Dashboard</span>
                 </a>
 
@@ -16,7 +18,7 @@
 
             <li class="sub-menu">
                 <a <?= (isset($current_page) && $current_page == "products") ? ' class="active" ' : ''; ?> href="<?= ROOT ?>admin/products">
-                    <i class="fa fa-barcode"></i>
+                <i class='bx bx-list-check'></i>
                     <span>Products</span>
                 </a>
 
@@ -24,7 +26,7 @@
 
             <li class="sub-menu">
                 <a <?= (isset($current_page) && $current_page == "categories") ? ' class="active" ' : ''; ?> href="<?= ROOT ?>admin/categories">
-                    <i class="fa fa-list-alt"></i>
+                    <i class="bx bxs-category"></i>
                     <span>Categories</span>
                 </a>
 
@@ -32,7 +34,7 @@
 
             <li class="sub-menu">
                 <a <?= (isset($current_page) && $current_page == "orders") ? ' class="active" ' : ''; ?> href="<?= ROOT ?>admin/orders">
-                    <i class="fa fa-reorder"></i>
+                    <i class="bx bx-dollar"></i>
                     <span>Orders</span>
                 </a>
 
@@ -40,7 +42,7 @@
 
             <li class="sub-menu">
                 <a <?= (isset($current_page) && $current_page == "messages") ? ' class="active" ' : ''; ?> href="<?= ROOT ?>admin/messages">
-                    <i class="fa fa-email-o"></i>
+                    <i class="bx bxs-chat"></i>
                     <span>Messages</span>
                 </a>
 
@@ -48,7 +50,7 @@
 
             <li class="sub-menu">
                 <a <?= (isset($current_page) && $current_page == "settings") ? ' class="active" ' : ''; ?> href="<?= ROOT ?>admin/settings/socials">
-                    <i class="fa fa-cogs"></i>
+                    <i class="bx bx-bell"></i>
                     <span>Social links</span>
                 </a>
                 <!-- <ul class="sub">
@@ -71,11 +73,11 @@
                     <li><a href="<?= ROOT ?>admin/users/admins">Admins</a></li>
                 </ul>
             </li>
-
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>    
             <li class="sub-menu">
-                <a href="<?= ROOT ?>admin/backup">
-                    <i class="fa  fa-hdd-o"></i>
-                    <span>Website Backup</span>
+                 <a class="logout" href="<?= ROOT ?>logout">
+                    <i class="fa fa-sign-out"></i>
+                    <span>Logout</span>
                 </a>
 
             </li>
@@ -93,6 +95,6 @@
 <!--main content start-->
 <section id="main-content">
     <section class="wrapper site-min-height">
-        <h3><i class="fa fa-angle-right"></i><?= ucwords($data['page_title']) ?></h3>
+        <h3><i class="fa fa-angle-right"></i><?= ' '.ucwords($data['page_title']) ?></h3>
         <div class="row mt">
             <div class="col-lg-12">
