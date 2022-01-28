@@ -2,6 +2,8 @@
 
 class Product
 {
+
+
 	public function create($DATA, $FILES, $image_class = null)
 	{
 		$_SESSION['error'] = "";
@@ -84,7 +86,6 @@ class Product
 
 	public function edit($data, $FILES, $image_class = null)
 	{
-
 		$arr['id'] = $data->id;
 		$arr['description'] = $data->description;
 		$arr['quantity'] = $data->quantity;
@@ -159,6 +160,7 @@ class Product
 
 	public function make_table($cats, $model = null)
 	{
+
 		$result = "";
 		if (is_array($cats)) {
 			foreach ($cats as $cat_row) {
@@ -178,8 +180,8 @@ class Product
 				$info = str_replace('"', "'", json_encode($info));
 
 				$one_cat = $model->get_one($cat_row->category);
-
 				$result .= "<tr>";
+
 				$result .= '
 						<td><a href="basic_table.html#">' . $cat_row->id . '</a></td>
 						<td><a href="basic_table.html#">' . $cat_row->description . '</a></td>
@@ -190,10 +192,12 @@ class Product
 						<td><a href="basic_table.html#"><img src="' . ROOT . $cat_row->image . '" style="width:70px; height:70px;" /></a></td>
 	                  <td></td>
 	                  <td>
+	                      
 	                      <button info="' . $info . '" onclick="show_edit_product(' . $edit_args . ',event)" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
 	                      <button onclick="delete_row(' . $cat_row->id . ')" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
 	                  </td>
 					';
+
 				$result .= "</tr>";
 			}
 		}

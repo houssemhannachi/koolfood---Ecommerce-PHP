@@ -108,12 +108,12 @@
 			<!--end searchbox-->
 
 			<table class="table table-striped table-advance table-hover">
-				<h4><i class="fa fa-angle-right"></i> Products <button class="btn btn-primary btn-xs" style="background-color:#c00a27" onclick="show_add_new(event)"><i class="fa fa-plus"></i> Add New</button></h4>
+				<h4><i class="fa fa-angle-right"></i> Products <button class="btn btn-primary btn-xs" onclick="show_add_new(event)"><i class="fa fa-plus"></i> Add New</button></h4>
 
 				<!--add new product-->
 				<div class="add_new add_edit_panel hide">
 
-					<h4 class="mb" ><i class="fa fa-angle-right"></i> Add New Product</h4>
+					<h4 class="mb"><i class="fa fa-angle-right"></i> Add New Product</h4>
 					<form class="form-horizontal style-form" method="post">
 						<div class="form-group">
 							<label class="col-sm-2 col-sm-2 control-label">Product Name:</label>
@@ -281,7 +281,11 @@
 				</div>
 				<!--edit product end-->
 
+
+
 				<hr>
+
+
 				<thead>
 					<tr>
 						<th>Product id</th>
@@ -322,10 +326,12 @@
 	}
 
 	function show_edit_product(id, product, e) {
+
 		var show_add_box = document.querySelector(".edit_product");
 		var edit_description_input = document.querySelector("#edit_description");
 
 		if (e) {
+
 			var a = (e.currentTarget.getAttribute("info"));
 			var info = JSON.parse(a.replaceAll("'", '"'));
 
@@ -353,17 +359,18 @@
 		}
 
 		if (show_add_box.classList.contains("hide")) {
+
 			show_add_box.classList.remove("hide");
 			edit_description_input.focus();
 		} else {
+
 			show_add_box.classList.add("hide");
 			edit_description_input.value = "";
 		}
-
-
 	}
 
 	function collect_data(e) {
+
 		var product_input = document.querySelector("#description");
 		if (product_input.value.trim() == "" || !isNaN(product_input.value.trim())) {
 			alert("Please enter a valid product name");
@@ -374,12 +381,6 @@
 		if (quantity_input.value.trim() == "" || isNaN(quantity_input.value.trim())) {
 			alert("Please enter a valid quantity");
 			return;
-		} else {
-			const qty = Number(quantity_input.value.trim());
-			if(!Number.isInteger(qty) || qty < 1) {
-				alert("Please enter a valid quantity");
-				return;
-			}
 		}
 
 		var category_input = document.querySelector("#category");
@@ -392,12 +393,6 @@
 		if (price_input.value.trim() == "" || isNaN(price_input.value.trim())) {
 			alert("Please enter a valid price");
 			return;
-		} else {
-			const price = Number(price_input.value.trim());
-			if(!Number.is_float(price) || price < 1) {
-				alert("Please enter a valid price");
-				return;
-			}
 		}
 
 		var image_input = document.querySelector("#image");
@@ -435,6 +430,7 @@
 	}
 
 	function collect_edit_data(e) {
+
 		var product_input = document.querySelector("#edit_description");
 		if (product_input.value.trim() == "" || !isNaN(product_input.value.trim())) {
 			alert("Please enter a valid product name");
@@ -522,12 +518,13 @@
 		ajax.send(formdata);
 	}
 
+
+
 	function handle_result(result) {
 		if (result != "") {
 			var obj = JSON.parse(result);
 
 			if (typeof obj.data_type != 'undefined') {
-
 				if (obj.data_type == "add_new") {
 					if (obj.message_type == "info") {
 						alert(obj.message);
@@ -549,6 +546,11 @@
 						alert(obj.message);
 					}
 
+				} else if (obj.data_type == "disable_row") {
+
+					var table_body = document.querySelector("#table_body");
+					table_body.innerHTML = obj.data;
+
 				} else if (obj.data_type == "delete_row") {
 
 					var table_body = document.querySelector("#table_body");
@@ -562,12 +564,13 @@
 
 	function display_image(file, name, element) {
 		var index = 0;
-
 		if (name == "image2") {
 			index = 1;
-		} else if (name == "image3") {
+		} else
+		if (name == "image3") {
 			index = 2;
-		} else if (name == "image4") {
+		} else
+		if (name == "image4") {
 			index = 3;
 		}
 
@@ -579,12 +582,14 @@
 	}
 
 	function edit_row(id) {
+
 		send_data({
 			data_type: ""
 		});
 	}
 
 	function delete_row(id) {
+
 		if (!confirm("Are you sure you want to delete this row?")) {
 			return;
 		}
