@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le : ven. 28 jan. 2022 à 14:46
--- Version du serveur :  5.7.31
--- Version de PHP : 7.3.21
+-- Hôte : 127.0.0.1
+-- Généré le : ven. 28 jan. 2022 à 15:54
+-- Version du serveur : 10.4.21-MariaDB
+-- Version de PHP : 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,19 +27,13 @@ SET time_zone = "+00:00";
 -- Structure de la table `categories`
 --
 
-DROP TABLE IF EXISTS `categories`;
-CREATE TABLE IF NOT EXISTS `categories` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `categories` (
+  `id` int(11) NOT NULL,
   `category` varchar(30) NOT NULL,
-  `disabled` tinyint(1) NOT NULL DEFAULT '0',
+  `disabled` tinyint(1) NOT NULL DEFAULT 0,
   `parent` int(11) NOT NULL,
-  `views` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `category` (`category`),
-  KEY `disabled` (`disabled`),
-  KEY `parent` (`parent`),
-  KEY `views` (`views`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+  `views` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `categories`
@@ -57,16 +51,12 @@ INSERT INTO `categories` (`id`, `category`, `disabled`, `parent`, `views`) VALUE
 -- Structure de la table `cities`
 --
 
-DROP TABLE IF EXISTS `cities`;
-CREATE TABLE IF NOT EXISTS `cities` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `cities` (
+  `id` int(11) NOT NULL,
   `parent` int(11) NOT NULL,
   `city` varchar(30) NOT NULL,
-  `disabled` tinyint(4) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `parent` (`parent`),
-  KEY `disabled` (`disabled`)
-) ENGINE=InnoDB AUTO_INCREMENT=175 DEFAULT CHARSET=latin1;
+  `disabled` tinyint(4) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `cities`
@@ -243,19 +233,14 @@ INSERT INTO `cities` (`id`, `parent`, `city`, `disabled`) VALUES
 -- Structure de la table `contact_us`
 --
 
-DROP TABLE IF EXISTS `contact_us`;
-CREATE TABLE IF NOT EXISTS `contact_us` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `contact_us` (
+  `id` int(11) NOT NULL,
   `name` varchar(20) NOT NULL,
   `email` varchar(100) NOT NULL,
   `subject` varchar(30) NOT NULL,
   `message` varchar(1000) NOT NULL,
-  `date` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `email` (`email`),
-  KEY `subject` (`subject`),
-  KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  `date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -263,28 +248,22 @@ CREATE TABLE IF NOT EXISTS `contact_us` (
 -- Structure de la table `orders`
 --
 
-DROP TABLE IF EXISTS `orders`;
-CREATE TABLE IF NOT EXISTS `orders` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `orders` (
+  `id` bigint(20) NOT NULL,
   `user_url` varchar(60) NOT NULL,
   `description` varchar(20) NOT NULL,
   `delivery_address` varchar(1024) DEFAULT NULL,
-  `total` double NOT NULL DEFAULT '0',
+  `total` double NOT NULL DEFAULT 0,
   `state` varchar(20) DEFAULT NULL,
   `city` varchar(20) DEFAULT NULL,
   `zip` varchar(6) DEFAULT NULL,
-  `tax` double DEFAULT '0',
-  `shipping` double DEFAULT '0',
+  `tax` double DEFAULT 0,
+  `shipping` double DEFAULT 0,
   `date` datetime NOT NULL,
   `sessionid` varchar(30) NOT NULL,
   `home_phone` varchar(15) NOT NULL,
-  `mobile_phone` varchar(15) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `userid` (`user_url`),
-  KEY `date` (`date`),
-  KEY `sessionid` (`sessionid`),
-  KEY `description` (`description`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
+  `mobile_phone` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `orders`
@@ -307,19 +286,15 @@ INSERT INTO `orders` (`id`, `user_url`, `description`, `delivery_address`, `tota
 -- Structure de la table `order_details`
 --
 
-DROP TABLE IF EXISTS `order_details`;
-CREATE TABLE IF NOT EXISTS `order_details` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `order_details` (
+  `id` bigint(20) NOT NULL,
   `orderid` bigint(20) NOT NULL,
   `qty` int(11) NOT NULL,
   `description` varchar(200) NOT NULL,
   `amount` double NOT NULL,
   `total` double NOT NULL,
-  `productid` bigint(20) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `orderid` (`orderid`),
-  KEY `description` (`description`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=latin1;
+  `productid` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `order_details`
@@ -377,9 +352,8 @@ INSERT INTO `order_details` (`id`, `orderid`, `qty`, `description`, `amount`, `t
 -- Structure de la table `products`
 --
 
-DROP TABLE IF EXISTS `products`;
-CREATE TABLE IF NOT EXISTS `products` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `products` (
+  `id` int(11) NOT NULL,
   `user_url` varchar(60) NOT NULL,
   `description` varchar(200) NOT NULL,
   `category` int(11) NOT NULL,
@@ -390,16 +364,8 @@ CREATE TABLE IF NOT EXISTS `products` (
   `image3` varchar(500) DEFAULT NULL,
   `image4` varchar(500) DEFAULT NULL,
   `date` datetime NOT NULL,
-  `slag` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `slag` (`slag`),
-  KEY `date` (`date`),
-  KEY `quantity` (`quantity`),
-  KEY `price` (`price`),
-  KEY `category` (`category`),
-  KEY `description` (`description`),
-  KEY `user_url` (`user_url`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
+  `slag` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `products`
@@ -426,15 +392,12 @@ INSERT INTO `products` (`id`, `user_url`, `description`, `category`, `price`, `q
 -- Structure de la table `settings`
 --
 
-DROP TABLE IF EXISTS `settings`;
-CREATE TABLE IF NOT EXISTS `settings` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `settings` (
+  `id` int(11) NOT NULL,
   `setting` varchar(30) DEFAULT NULL,
   `value` varchar(2048) DEFAULT NULL,
-  `type` varchar(20) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `setting` (`setting`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+  `type` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `settings`
@@ -446,7 +409,7 @@ INSERT INTO `settings` (`id`, `setting`, `value`, `type`) VALUES
 (5, 'linkedin_link', '', ''),
 (7, 'website_link', '', ''),
 (8, 'youtube_link', 'https://www.youtube.com', ''),
-(9, 'contact_info', 'E-Shopper Inc.\r\n\r\n<b>935 W. Webster Ave New Streets Chicago, IL 60614, NY</b>\r\n\r\nNewyork USA\r\n\r\nMobile: +2346 17 38 93\r\n\r\nFax: 1-714-252-0026\r\n\r\nEmail: info@e-shopper.com', 'textarea');
+(9, 'contact_info', 'Kool Food.\r\n\r\n<b>Km 4 Rte de la Soukra, Sfax 3038</b>\r\n\r\nSfax Tunisia\r\n\r\nMobile: +216 74 274 860\r\n\r\nFax: 1-714-252-0026\r\n\r\nEmail: koolfood@enis.tn', 'textarea');
 
 -- --------------------------------------------------------
 
@@ -454,19 +417,16 @@ INSERT INTO `settings` (`id`, `setting`, `value`, `type`) VALUES
 -- Structure de la table `slider_images`
 --
 
-DROP TABLE IF EXISTS `slider_images`;
-CREATE TABLE IF NOT EXISTS `slider_images` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `slider_images` (
+  `id` int(11) NOT NULL,
   `header1_text` varchar(20) NOT NULL,
   `header2_text` varchar(30) DEFAULT NULL,
   `text` varchar(200) NOT NULL,
   `link` varchar(200) DEFAULT NULL,
   `image` varchar(500) DEFAULT NULL,
   `image2` varchar(500) DEFAULT NULL,
-  `disabled` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `disabled` (`disabled`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+  `disabled` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -474,14 +434,11 @@ CREATE TABLE IF NOT EXISTS `slider_images` (
 -- Structure de la table `states`
 --
 
-DROP TABLE IF EXISTS `states`;
-CREATE TABLE IF NOT EXISTS `states` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `states` (
+  `id` int(11) NOT NULL,
   `state` varchar(30) NOT NULL,
-  `disabled` tinyint(4) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `disabled` (`disabled`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+  `disabled` tinyint(4) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `states`
@@ -519,22 +476,15 @@ INSERT INTO `states` (`id`, `state`, `disabled`) VALUES
 -- Structure de la table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `users` (
+  `id` bigint(20) NOT NULL,
   `url_address` varchar(60) NOT NULL,
   `name` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(64) NOT NULL,
   `date` datetime NOT NULL,
-  `rank` varchar(8) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `url_address` (`url_address`),
-  KEY `email` (`email`),
-  KEY `name` (`name`),
-  KEY `rank` (`rank`),
-  KEY `date` (`date`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+  `rank` varchar(8) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `users`
@@ -542,6 +492,164 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `url_address`, `name`, `email`, `password`, `date`, `rank`) VALUES
 (4, 'IYHtfbbTBkpFExy', 'XXXXX', 'X@XX.COM', 'd712a38ada1b58a0a561d8bb249d9f0668b25047', '2021-12-24 21:46:02', 'admin');
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `category` (`category`),
+  ADD KEY `disabled` (`disabled`),
+  ADD KEY `parent` (`parent`),
+  ADD KEY `views` (`views`);
+
+--
+-- Index pour la table `cities`
+--
+ALTER TABLE `cities`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `parent` (`parent`),
+  ADD KEY `disabled` (`disabled`);
+
+--
+-- Index pour la table `contact_us`
+--
+ALTER TABLE `contact_us`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `email` (`email`),
+  ADD KEY `subject` (`subject`),
+  ADD KEY `name` (`name`);
+
+--
+-- Index pour la table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `userid` (`user_url`),
+  ADD KEY `date` (`date`),
+  ADD KEY `sessionid` (`sessionid`),
+  ADD KEY `description` (`description`);
+
+--
+-- Index pour la table `order_details`
+--
+ALTER TABLE `order_details`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `orderid` (`orderid`),
+  ADD KEY `description` (`description`);
+
+--
+-- Index pour la table `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `slag` (`slag`),
+  ADD KEY `date` (`date`),
+  ADD KEY `quantity` (`quantity`),
+  ADD KEY `price` (`price`),
+  ADD KEY `category` (`category`),
+  ADD KEY `description` (`description`),
+  ADD KEY `user_url` (`user_url`);
+
+--
+-- Index pour la table `settings`
+--
+ALTER TABLE `settings`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `setting` (`setting`);
+
+--
+-- Index pour la table `slider_images`
+--
+ALTER TABLE `slider_images`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `disabled` (`disabled`);
+
+--
+-- Index pour la table `states`
+--
+ALTER TABLE `states`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `disabled` (`disabled`);
+
+--
+-- Index pour la table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `url_address` (`url_address`),
+  ADD KEY `email` (`email`),
+  ADD KEY `name` (`name`),
+  ADD KEY `rank` (`rank`),
+  ADD KEY `date` (`date`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT pour la table `cities`
+--
+ALTER TABLE `cities`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=175;
+
+--
+-- AUTO_INCREMENT pour la table `contact_us`
+--
+ALTER TABLE `contact_us`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT pour la table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+
+--
+-- AUTO_INCREMENT pour la table `order_details`
+--
+ALTER TABLE `order_details`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+
+--
+-- AUTO_INCREMENT pour la table `products`
+--
+ALTER TABLE `products`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+
+--
+-- AUTO_INCREMENT pour la table `settings`
+--
+ALTER TABLE `settings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT pour la table `slider_images`
+--
+ALTER TABLE `slider_images`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT pour la table `states`
+--
+ALTER TABLE `states`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT pour la table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
