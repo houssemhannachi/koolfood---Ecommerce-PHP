@@ -370,35 +370,45 @@
 	}
 
 	function collect_data(e) {
-
+		var errors = "";
 		var product_input = document.querySelector("#description");
 		if (product_input.value.trim() == "" || !isNaN(product_input.value.trim())) {
-			alert("Please enter a valid product name");
-			return;
+			errors += "Please enter a valid product name\n"
 		}
 
 		var quantity_input = document.querySelector("#quantity");
 		if (quantity_input.value.trim() == "" || isNaN(quantity_input.value.trim())) {
-			alert("Please enter a valid quantity");
-			return;
+			errors += "Please enter a valid quantity\n";
+		} else {
+			var qty = Number(quantity_input.value.trim());
+			if (!Number.isInteger(qty) || qty < 0) {
+				errors += "Please enter a valid quantity\n";
+			}
 		}
 
 		var category_input = document.querySelector("#category");
 		if (category_input.value.trim() == "" || isNaN(category_input.value.trim())) {
-			alert("Please enter a valid category");
-			return;
+			errors += "Please enter a valid category\n";
 		}
 
 		var price_input = document.querySelector("#price");
 		if (price_input.value.trim() == "" || isNaN(price_input.value.trim())) {
-			alert("Please enter a valid price");
-			return;
+			errors += "Please enter a valid price\n";
+		} else {
+			var price = Number(price_input.value.trim());
+			if (price <= 0) {
+				errors += "Please enter a valid price\n";
+			}
 		}
 
 		var image_input = document.querySelector("#image");
 		if (image_input.files.length == 0) {
-			alert("Please enter a valid main image");
-			return;
+			errors += "Please enter a valid main image";
+		}
+
+		if(errors.length != 0) {
+			alert(errors);
+			return
 		}
 
 		//create a form
@@ -430,28 +440,39 @@
 	}
 
 	function collect_edit_data(e) {
-
+		var errors = "";
 		var product_input = document.querySelector("#edit_description");
 		if (product_input.value.trim() == "" || !isNaN(product_input.value.trim())) {
-			alert("Please enter a valid product name");
-			return;
+			errors += "Please enter a valid product name\n";
 		}
 
 		var quantity_input = document.querySelector("#edit_quantity");
 		if (quantity_input.value.trim() == "" || isNaN(quantity_input.value.trim())) {
-			alert("Please enter a valid quantity");
-			return;
+			errors += "Please enter a valid product quantity\n";
+		} else {
+			var qty = Number(quantity_input.value.trim());
+			if (!Number.isInteger(qty) || qty < 0) {
+				errors += "Please enter a valid product quantity\n";
+			}
 		}
 
 		var category_input = document.querySelector("#edit_category");
 		if (category_input.value.trim() == "" || isNaN(category_input.value.trim())) {
-			alert("Please enter a valid category");
-			return;
+			errors += "Please enter a valid product category\n";
 		}
 
 		var price_input = document.querySelector("#edit_price");
 		if (price_input.value.trim() == "" || isNaN(price_input.value.trim())) {
-			alert("Please enter a valid price");
+			errors += "Please enter a valid product price\n";
+		} else {
+			var price = Number(price_input.value.trim());
+			if (price <= 0) {
+				errors += "Please enter a valid product price\n";
+			}
+		}
+
+		if(errors.length != 0) {
+			alert(errors);
 			return;
 		}
 
@@ -590,21 +611,13 @@
 
 	function delete_row(id) {
 
-		if (!confirm("Are you sure you want to delete this row?")) {
+		if (!confirm("Are you sure you want to delete this product?")) {
 			return;
 		}
 
 		send_data({
 			data_type: "delete_row",
 			id: id
-		});
-	}
-
-	function disable_row(id, state) {
-		send_data({
-			data_type: "disable_row",
-			id: id,
-			current_state: state,
 		});
 	}
 </script>

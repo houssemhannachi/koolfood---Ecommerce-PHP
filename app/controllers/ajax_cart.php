@@ -32,14 +32,16 @@ class Ajax_cart extends Controller
 	{
 		$obj = json_decode($data);
 
-		$quantity = esc($obj->quantity);
-		$id = esc($obj->id);
-		if (isset($_SESSION['CART'])) {
-			foreach ($_SESSION['CART'] as $key => $item) {
-				if ($item['id'] == $id) {
-
-					$_SESSION['CART'][$key]['qty'] = (int)$quantity;
-					break;
+		$quantity = (int)esc($obj->quantity);
+		if($quantity >= 1) {
+			$id = esc($obj->id);
+			if (isset($_SESSION['CART'])) {
+				foreach ($_SESSION['CART'] as $key => $item) {
+					if ($item['id'] == $id) {
+	
+						$_SESSION['CART'][$key]['qty'] = $quantity;
+						break;
+					}
 				}
 			}
 		}

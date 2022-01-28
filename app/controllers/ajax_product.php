@@ -46,7 +46,7 @@ class Ajax_product extends Controller
 					$arr['message_type'] = "error";
 				} else {
 
-					$arr['message'] = "Your row was successfully edited";
+					$arr['message'] = "Product edited successfully!";
 					$arr['message_type'] = "info";
 				}
 
@@ -60,7 +60,7 @@ class Ajax_product extends Controller
 				echo json_encode($arr);
 			} else if ($data->data_type == 'delete_row') {
 				$product->delete($data->id);
-				$arr['message'] = "Your row was successfully deleted";
+				$arr['message'] = "Product deleted successfully!";
 				$_SESSION['error'] = "";
 				$arr['message_type'] = "info";
 

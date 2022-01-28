@@ -88,7 +88,7 @@
 						<div>Price Range:</div>
 						<div class="well text-center price-range" style="margin-top: 0px;margin-bottom: 0px;">
 							<input type="text" class="span2" value="" data-slider-min="0" data-slider-max="50" data-slider-step="1" data-slider-value="[<?php Search::get_sticky('number', 'min-price', '', 0) ?>,<?php Search::get_sticky('number', 'max-price', '', 50) ?>]" id="sl2"><br />
-							<b class="pull-left">$ 0</b> <b class="pull-right">$ 50</b>
+							<b class="pull-left">0 DT</b> <b class="pull-right">50 DT</b>
 
 							<input value="<?php Search::get_sticky('number', 'min-price') ?>" class="form-control min-value" type="hidden" step="0.01" name="min-price">
 							<input value="<?php Search::get_sticky('number', 'max-price') ?>" class="form-control max-value" type="hidden" step="0.01" name="max-price">
