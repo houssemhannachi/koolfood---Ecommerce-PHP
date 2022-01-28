@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title><?= $data['page_title'] ?> | eShop</title>
+	<title><?= $data['page_title'] ?> | Kool Food</title>
 	<link href="<?= ASSETS . THEME ?>css/bootstrap.min.css?v=<?php echo time(); ?>" rel="stylesheet">
 	<link href="<?= ASSETS . THEME ?>css/font-awesome.min.css?v=<?php echo time(); ?>" rel="stylesheet">
 	<link href="<?= ASSETS . THEME ?>css/prettyPhoto.css?v=<?php echo time(); ?>" rel="stylesheet">
