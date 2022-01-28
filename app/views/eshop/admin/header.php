@@ -18,6 +18,8 @@
     <!-- Custom styles for this template -->
     <link href="<?= ASSETS . THEME ?>admin/css/style.css?v=<?php echo time(); ?>" rel="stylesheet">
     <link href="<?= ASSETS . THEME ?>admin/css/style-responsive.css?v=<?php echo time(); ?>" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css?v=<?php echo time(); ?>' rel='stylesheet'>
+
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
