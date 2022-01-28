@@ -54,9 +54,6 @@
 							<li>
 								<a href="<?= Settings::facebook_link() ?>"><i class="fa fa-facebook"></i></a>
 							</li>
-							<li>
-								<a href="<?= Settings::twitter_link() ?>"><i class="fa fa-twitter"></i></a>
-							</li>
 
 						</ul>
 					</div>
