@@ -57,7 +57,7 @@
 									<p id="user_text" class="small mt">TOTAL SPEND</p>
 									<?php foreach ($orders as $order) :
 										$somme = $somme + $order->total; ?>
-										<?php endforeach; ?><p><?= $somme ?> $</p><?php endif; ?>
+										<?php endforeach; ?><p><?= $somme ?> DT</p><?php endif; ?>
 
 										
 							</div>
@@ -98,7 +98,7 @@
 								<tr style="position: relative;">
 									<td><?= $order->id ?></td>
 									<td><?= date("jS M Y H:i a", strtotime($order->date)) ?></td>
-									<td>$<?= $order->total ?></td>
+									<td><?= $order->total ?> DT</td>
 									<td><?= $order->delivery_address ?></td>
 									<td><?= $order->state ?></td>
 									<td><?= $order->mobile_phone ?>

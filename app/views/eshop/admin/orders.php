@@ -38,7 +38,7 @@
 					<td><?= $order->id ?></td>
 					<td><a href="<?= ROOT ?>profile/<?= $order->user->url_address ?>"><?= $order->user->name ?></a></td>
 					<td><?= date("jS M Y H:i a", strtotime($order->date)) ?></td>
-					<td>$<?= $order->total ?></td>
+					<td><?= $order->total ?> DT</td>
 					<td><?= $order->delivery_address ?></td>
 					<td><?= $order->city ?></td>
 					<td><?= $order->mobile_phone ?></td>
