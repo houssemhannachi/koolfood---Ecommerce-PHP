@@ -268,7 +268,7 @@
 	}
 
 	function delete_row(id) {
-		if (!confirm("Are you sure you want to delete this row?")) {
+		if (!confirm("Are you sure you want to delete this category?")) {
 			return;
 		}
 
