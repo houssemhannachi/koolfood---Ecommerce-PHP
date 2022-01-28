@@ -4,6 +4,7 @@
 	<div class="bg">
 		<div class="row">
 			<div class="col-sm-12">
+				<br> <br>
 				<h2 class="title text-center">Contact <strong>Us</strong></h2>
 
 			</div>
