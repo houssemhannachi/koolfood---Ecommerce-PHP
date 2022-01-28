@@ -21,7 +21,19 @@ if (isset($errors) && count($errors) > 0) {
 			</ol>
 		</div>
 		<!--/breadcrums-->
-
+		<div class="pizzaro-order-steps">
+			<ul>
+				<li>
+					<span class="step">1</span> Shopping Cart 
+				</li>
+				<li class="cart">
+					<span class="step">2</span> Checkout
+				</li>
+				<li>
+					<span class="step" >3</span> Order Complete
+				</li>
+			</ul>
+		</div>
 
 		<?php if (isset($orders) && is_array($orders)) : ?>
 
@@ -126,6 +138,7 @@ if (isset($errors) && count($errors) > 0) {
 			<a href="<?= ROOT ?>home"><input type="submit" class="btn btn-warning pull-right" value="Pay >" name=""></a>
 		</form>
 	</div>
+	<br><br>
 </section>
 <!--/#cart_items-->
 
