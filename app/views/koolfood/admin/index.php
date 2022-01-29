@@ -24,7 +24,7 @@
 			<span class="fa fa-paste"></span>
 			<h3><?= get_order_count() ?></h3>
 		</div>
-		<p>More than <?= get_order_count() ?> orders were received.</p>
+		<p><?= get_order_count() ?> orders were received.</p>
 	</div>
 	<div class="col-md-2 col-sm-2 box0">
 		<div class="box1">

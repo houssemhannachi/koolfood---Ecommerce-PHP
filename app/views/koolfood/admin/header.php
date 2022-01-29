@@ -45,13 +45,15 @@
             <!--logo end-->
             
             <div class="top-menu">
-                
                 <ul class="nav pull-right top-menu">
-                    <li style="font-size:15px; padding-top:20px; text-align:center; padding-right:10px;color:white"><?= $data['user_data']->name ?></li>
-
                     <li><a class="logout" href="<?= ROOT ?>logout"> <i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li>
                 </ul>
-
+                <ul class="nav pull-right top-menu">
+                    <li><a class="logout" href="<?=ROOT?>">Website</a></li>
+            	</ul>
+                <ul class="nav pull-right top-menu">
+                    <li style="font-size:15px; padding-top:20px; text-align:center; padding-right:10px;color:white"><?= $data['user_data']->name ?></li>
+            	</ul>
             </div>
         </header>
         <!--header end-->

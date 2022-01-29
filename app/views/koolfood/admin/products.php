@@ -383,6 +383,7 @@
 			var qty = Number(quantity_input.value.trim());
 			if (!Number.isInteger(qty) || qty < 0) {
 				errors += "Please enter a valid quantity\n";
+				quantity_input.value = "";
 			}
 		}
 
@@ -398,6 +399,7 @@
 			var price = Number(price_input.value.trim());
 			if (price <= 0) {
 				errors += "Please enter a valid price\n";
+				price_input.value = "";
 			}
 		}
 
@@ -453,6 +455,7 @@
 			var qty = Number(quantity_input.value.trim());
 			if (!Number.isInteger(qty) || qty < 0) {
 				errors += "Please enter a valid product quantity\n";
+				quantity_input.value = "";
 			}
 		}
 
@@ -468,6 +471,7 @@
 			var price = Number(price_input.value.trim());
 			if (price <= 0) {
 				errors += "Please enter a valid product price\n";
+				price_input.value = "";
 			}
 		}
 
