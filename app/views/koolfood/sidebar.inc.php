@@ -87,11 +87,11 @@
 					<td>
 						<div>Price Range:</div>
 						<div class="well text-center price-range" style="margin-top: 0px;margin-bottom: 0px;">
-							<input type="text" class="span2" value="" data-slider-min="0" data-slider-max="50" data-slider-step="1" data-slider-value="[<?php Search::get_sticky('number', 'min-price', '', 0) ?>,<?php Search::get_sticky('number', 'max-price', '', 50) ?>]" id="sl2"><br />
-							<b class="pull-left">0 DT</b> <b class="pull-right">50 DT</b>
+							<input type="text" class="span2" value="" data-slider-min="0" data-slider-max="25" data-slider-step="0.5" data-slider-value="[<?php Search::get_sticky('number', 'min-price', '', 0) ?>,<?php Search::get_sticky('number', 'max-price', '', 50) ?>]" id="sl2"><br />
+							<b class="pull-left">0 DT</b> <b class="pull-right">25 DT</b>
 
-							<input value="<?php Search::get_sticky('number', 'min-price') ?>" class="form-control min-value" type="hidden" step="0.01" name="min-price">
-							<input value="<?php Search::get_sticky('number', 'max-price') ?>" class="form-control max-value" type="hidden" step="0.01" name="max-price">
+							<input value="<?php Search::get_sticky('number', 'min-price') ?>" class="form-control min-value" type="hidden" step="1" name="min-price">
+							<input value="<?php Search::get_sticky('number', 'max-price') ?>" class="form-control max-value" type="hidden" step="1" name="max-price">
 
 						</div>
 					</td>
@@ -102,7 +102,7 @@
 						<div class="form-inline">
 
 							<div class="well text-center quantity-range" style="margin-top: 0px;margin-bottom: 0px;">
-								<input type="text" class="span2" value="" data-slider-min="0" data-slider-max="50" data-slider-step="5" data-slider-value="[<?php Search::get_sticky('number', 'min-qty', '', 0) ?>,<?php Search::get_sticky('number', 'max-qty', '', 50) ?>]" id="sl3"><br />
+								<input type="text" class="span2" value="" data-slider-min="0" data-slider-max="50" data-slider-step="1" data-slider-value="[<?php Search::get_sticky('number', 'min-qty', '', 0) ?>,<?php Search::get_sticky('number', 'max-qty', '', 50) ?>]" id="sl3"><br />
 								<b class="pull-left">0</b> <b class="pull-right">50</b>
 
 								<input class="form-control min-value" type="hidden" value="<?php Search::get_sticky('number', 'min-qty') ?>" step="1" name="min-qty">
